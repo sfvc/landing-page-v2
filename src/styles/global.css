@@ -17,3 +17,19 @@ html {
 ::-webkit-scrollbar-track {
     background-color: transparent;
 }
+
+.colorPrincipalFondo {
+    background-color: #007886;
+}
+
+.colorPrincipalTexto {
+    color: #008c9b;
+}
+
+.colorPrincipalHover:hover {
+    color: #00bdd2;
+}
+
+.colorPrincipalBorde {
+    border-color: #007886;
+}

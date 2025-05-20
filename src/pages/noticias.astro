@@ -39,40 +39,40 @@ const categorias = [
         <div class="flex items-center space-x-2">
           <a href="/">
             <img
-              src="https://framerusercontent.com/images/BxsMmsF1qeplMYFIuqNZ7hwNbo.png"
+              src="./logo_CATACAPI_oscuro.png"
               alt="Logo"
-              class="h-20"
+              class="h-10"
             />
           </a>
         </div>
         <nav class="hidden md:flex space-x-6">
           <a
             href="/"
-            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
             >Inicio</a
           >
           <a
             href="/#sobre-nosotros"
-            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
             >Sobre Nosotros</a
           >
           <a
             href="/#noticias"
-            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
             >Noticias</a
           >
           <a
             href="/#instalaciones"
-            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
             >Instalaciones</a
           >
           <a
             href="/#contacto"
-            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
             >Contacto</a
           >
         </nav>
-        <button class="md:hidden text-blue-600" id="menu-toggle">
+        <button class="md:hidden colorPrincipalTexto" id="menu-toggle">
           <i class="fas fa-bars text-2xl"></i>
         </button>
       </div>
@@ -81,25 +81,25 @@ const categorias = [
         <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
           <a
             href="/"
-            class="hover:text-blue-600 font-medium">Inicio</a
+            class="colorPrincipalHover font-medium">Inicio</a
           >
-          <a href="/#sobre-nosotros" class="hover:text-blue-600 font-medium"
+          <a href="/#sobre-nosotros" class="colorPrincipalHover font-medium"
             >Sobre Nosotros</a
           >
-          <a href="/#noticias" class="hover:text-blue-600 font-medium"
+          <a href="/#noticias" class="colorPrincipalHover font-medium"
             >Noticias</a
           >
-          <a href="/#instalaciones" class="hover:text-blue-600 font-medium"
+          <a href="/#instalaciones" class="colorPrincipalHover font-medium"
             >Instalaciones</a
           >
-          <a href="/#contacto" class="hover:text-blue-600 font-medium"
+          <a href="/#contacto" class="colorPrincipalHover font-medium"
             >Contacto</a
           >
         </div>
       </div>
     </header>
 
-    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+    <section class="bg-gradient-to-r from-[#009bac] to-[#007886] text-white py-12">
       <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4 animate__animated animate__fadeInDown">
           Noticias y Eventos
@@ -115,7 +115,7 @@ const categorias = [
         <div class="flex flex-wrap justify-center gap-4">
           {categorias.map((category, index) => (
             <button
-              class={`cursor-pointer px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 ${index === 0 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-black hover:bg-blue-600 hover:text-white'}`}
+              class={`cursor-pointer px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 ${index === 0 ? 'colorPrincipalFondo text-white' : 'bg-gray-100 text-black hover:colorPrincipalFondo hover:text-white'}`}
               data-category={category}
             >
               {category}
@@ -163,7 +163,7 @@ const categorias = [
       </div>
     </section>
 
-    <footer class="bg-blue-800 text-white py-12">
+    <footer class="colorPrincipalFondo text-white py-12">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>

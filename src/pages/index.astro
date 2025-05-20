@@ -24,46 +24,45 @@ import "../styles/global.css";
   </head>
 
   <body class="bg-gray-50 text-gray-800 font-sans">
-
     <header class="bg-white shadow-md sticky top-0 z-50">
       <div
         class="container mx-auto px-4 py-3 flex justify-between items-center"
       >
         <div class="flex items-center space-x-2">
           <img
-            src="https://framerusercontent.com/images/BxsMmsF1qeplMYFIuqNZ7hwNbo.png"
+            src="./logo_CATACAPI_oscuro.png"
             alt="Logo"
-            class="h-20 animate__animated animate__fadeIn"
+            class="h-10 animate__animated animate__fadeIn"
           />
         </div>
         <nav class="hidden md:flex space-x-6">
           <a
             href="#inicio"
-            class="text-blue-600 hover:text-blue-800 font-medium transition-all duration-300 hover:scale-105"
+            class="colorPrincipalTexto colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
             >Inicio</a
           >
           <a
             href="#sobre-nosotros"
-            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
             >Sobre Nosotros</a
           >
           <a
             href="#noticias"
-            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
             >Noticias</a
           >
           <a
             href="#instalaciones"
-            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
             >Instalaciones</a
           >
           <a
             href="#contacto"
-            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
             >Contacto</a
           >
         </nav>
-        <button class="md:hidden text-blue-600" id="menu-toggle">
+        <button class="md:hidden colorPrincipalTexto" id="menu-toggle">
           <i class="fas fa-bars text-2xl"></i>
         </button>
       </div>
@@ -72,18 +71,19 @@ import "../styles/global.css";
         <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
           <a
             href="#inicio"
-            class="text-blue-600 hover:text-blue-800 font-medium">Inicio</a
+            class="colorPrincipalTexto colorPrincipalHover font-medium"
+            >Inicio</a
           >
-          <a href="#sobre-nosotros" class="hover:text-blue-600 font-medium"
+          <a href="#sobre-nosotros" class="colorPrincipalHover font-medium"
             >Sobre Nosotros</a
           >
-          <a href="#noticias" class="hover:text-blue-600 font-medium"
+          <a href="#noticias" class="colorPrincipalHover font-medium"
             >Noticias</a
           >
-          <a href="#instalaciones" class="hover:text-blue-600 font-medium"
+          <a href="#instalaciones" class="colorPrincipalHover font-medium"
             >Instalaciones</a
           >
-          <a href="#contacto" class="hover:text-blue-600 font-medium"
+          <a href="#contacto" class="colorPrincipalHover font-medium"
             >Contacto</a
           >
         </div>
@@ -92,7 +92,7 @@ import "../styles/global.css";
 
     <section
       id="inicio"
-      class="bg-gradient-to-r from-blue-500 to-blue-700 text-white overflow-hidden"
+      class="bg-gradient-to-r from-[#009bac] to-[#007886] text-white overflow-hidden"
     >
       <div
         class="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center"
@@ -107,13 +107,13 @@ import "../styles/global.css";
           <div class="flex space-x-4">
             <a
               href="#contacto"
-              class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              class="bg-white colorPrincipalTexto hover:bg-gray-100 px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               Contáctanos
             </a>
             <a
               href="#noticias"
-              class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+              class="bg-transparent border-2 border-white hover:bg-white colorPrincipalHover px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
             >
               Últimas Noticias
             </a>
@@ -121,9 +121,9 @@ import "../styles/global.css";
         </div>
         <div class="md:w-1/2 animate__animated animate__fadeInRight">
           <img
-            src="https://framerusercontent.com/images/Th20CAWtnUNYcMieNedRh70Y4i0.jpg"
+            src="https://www.giro.catamarcacapital.gob.ar/assets/logo-giro.svg"
             alt="Imagen principal"
-            class="rounded-lg shadow-xl w-full transform transition-transform duration-500 hover:scale-105"
+            class="h-96 rounded-lg w-full transform transition-transform duration-500 hover:scale-105"
           />
         </div>
       </div>
@@ -134,7 +134,7 @@ import "../styles/global.css";
             class="bg-white/20 backdrop-blur-sm p-4 rounded-lg animate__animated animate__fadeInUp"
             style="animation-delay: 0.1s"
           >
-            <div class="text-3xl font-bold mb-2 counter" data-target="500">
+            <div class="text-3xl font-bold mb-2 counter" data-target="1200">
               0
             </div>
             <div class="text-sm">Visitantes mensuales</div>
@@ -143,28 +143,28 @@ import "../styles/global.css";
             class="bg-white/20 backdrop-blur-sm p-4 rounded-lg animate__animated animate__fadeInUp"
             style="animation-delay: 0.2s"
           >
-            <div class="text-3xl font-bold mb-2 counter" data-target="20">
+            <div class="text-3xl font-bold mb-2 counter" data-target="35">
               0
             </div>
-            <div class="text-sm">Proyectos activos</div>
+            <div class="text-sm">Talleres y actividades anuales</div>
           </div>
           <div
             class="bg-white/20 backdrop-blur-sm p-4 rounded-lg animate__animated animate__fadeInUp"
             style="animation-delay: 0.3s"
           >
-            <div class="text-3xl font-bold mb-2 counter" data-target="15">
+            <div class="text-3xl font-bold mb-2 counter" data-target="25">
               0
             </div>
-            <div class="text-sm">Alianzas estratégicas</div>
+            <div class="text-sm">Instituciones aliadas</div>
           </div>
           <div
             class="bg-white/20 backdrop-blur-sm p-4 rounded-lg animate__animated animate__fadeInUp"
             style="animation-delay: 0.4s"
           >
-            <div class="text-3xl font-bold mb-2 counter" data-target="300">
+            <div class="text-3xl font-bold mb-2 counter" data-target="5000">
               0
             </div>
-            <div class="text-sm">Personas capacitadas</div>
+            <div class="text-sm">Kg de residuos recuperados por mes</div>
           </div>
         </div>
       </div>
@@ -173,34 +173,40 @@ import "../styles/global.css";
     <section id="sobre-nosotros" class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <h2
-          class="text-3xl font-bold text-center mb-12 text-blue-600 reveal-title"
+          class="text-3xl font-bold text-center mb-12 colorPrincipalTexto reveal-title"
         >
           Sobre Nosotros
         </h2>
         <div class="flex flex-col md:flex-row items-center">
           <div class="md:w-1/2 mb-8 md:mb-0 reveal-left">
             <img
-              src="https://framerusercontent.com/images/JMOsJdaa65mDOjxdRRzoSiCnac8.jpeg"
+              src="https://www.catamarcaciudad.gob.ar/wp-content/uploads/Punto-Giro-3.jpeg"
               alt="Sobre nosotros"
               class="rounded-lg shadow-md w-full transform transition-transform duration-500 hover:scale-105"
             />
           </div>
           <div class="md:w-1/2 md:pl-12 reveal-right">
             <p class="text-lg mb-6">
-              El {datosFicticios.nombre} es un espacio diseñado para fomentar la
-              innovación, el aprendizaje y el desarrollo tecnológico en la comunidad
-              de Catamarca.
+              El {datosFicticios.nombre} (Gestión Integral de Residuos desde el Origen)
+              es una iniciativa de la Municipalidad de San Fernando del Valle de
+              Catamarca que busca promover la separación de residuos en origen, facilitando
+              su recuperación, reutilización y reciclaje, y promoviendo la economía
+              circular en la ciudad.
             </p>
             <p class="text-lg mb-6">
-              Ofrecemos instalaciones modernas, equipamiento de última
-              generación y programas educativos para todas las edades, con el
-              objetivo de reducir la brecha digital y potenciar el talento
-              local.
+              A través de los {datosFicticios.nombre}, los vecinos pueden
+              acercar diversos tipos de residuos, como materiales reciclables
+              (papel, cartón, plástico, vidrio), residuos especiales (pilas,
+              baterías, aceites usados), residuos de aparatos eléctricos y
+              electrónicos (RAEE), residuos compostables y voluminosos (poda,
+              escombros, chatarra).
             </p>
             <p class="text-lg">
-              Trabajamos en colaboración con instituciones educativas, empresas
-              y el gobierno provincial para crear oportunidades de crecimiento y
-              desarrollo para todos los catamarqueños.
+              Uno de los {datosFicticios.nombre} destacados se encuentra en Valle
+              Chico, el cual cuenta con instalaciones sustentables, como paneles
+              solares, techo verde, biodigestor y mobiliario de madera plástica.
+              Además, ofrece actividades educativas y de concientización ambiental
+              para la comunidad.
             </p>
           </div>
         </div>
@@ -210,7 +216,7 @@ import "../styles/global.css";
     <section id="noticias" class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <h2
-          class="text-3xl font-bold text-center mb-12 text-blue-600 reveal-title"
+          class="text-3xl font-bold text-center mb-12 colorPrincipalTexto reveal-title"
         >
           Últimas Noticias
         </h2>
@@ -229,18 +235,20 @@ import "../styles/global.css";
               </div>
               <div class="md:w-1/2 p-8">
                 <span
-                  class="inline-block bg-blue-100 text-blue-600 text-sm font-medium px-3 py-1 rounded-full mb-4"
+                  class="inline-block bg-blue-100 colorPrincipalTexto text-sm font-medium px-3 py-1 rounded-full mb-4"
                 >
                   Destacado
                 </span>
-                <span class="text-blue-600 text-sm font-medium block mb-2">
+                <span
+                  class="colorPrincipalTexto text-sm font-medium block mb-2"
+                >
                   {noticias[0].fecha}
                 </span>
                 <h3 class="text-2xl font-bold mb-4">{noticias[0].titulo}</h3>
                 <p class="text-gray-600 mb-6">{noticias[0].resumen}</p>
                 <a
                   href={`/noticias/${noticias[0].id}`}
-                  class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105"
+                  class="inline-block colorPrincipalFondo text-white px-6 py-3 rounded-lg font-medium hover:colorPrincipalFondo transition-all duration-300 hover:scale-105"
                 >
                   Leer artículo completo
                 </a>
@@ -262,7 +270,7 @@ import "../styles/global.css";
         <div class="text-center mt-12 reveal-up">
           <a
             href="/noticias"
-            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            class="inline-block colorPrincipalFondo text-white px-6 py-3 rounded-lg font-medium hover:colorPrincipalFondo transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
             Ver todas las noticias
           </a>
@@ -274,7 +282,7 @@ import "../styles/global.css";
     <section id="instalaciones" class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <h2
-          class="text-3xl font-bold text-center mb-12 text-blue-600 reveal-title"
+          class="text-3xl font-bold text-center mb-12 colorPrincipalTexto reveal-title"
         >
           Nuestras Instalaciones
         </h2>
@@ -284,7 +292,7 @@ import "../styles/global.css";
               <div
                 class={`bg-gray-50 p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-all duration-300 hover:scale-105 hover:bg-blue-50 feature-card-${index + 1}`}
               >
-                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-4 transform transition-transform duration-500 hover:rotate-12">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 colorPrincipalTexto rounded-full mb-4 transform transition-transform duration-500 hover:rotate-12">
                   <i class={`fas fa-${feature.icon} text-2xl`} />
                 </div>
                 <h3 class="text-xl font-bold mb-3">{feature.titulo}</h3>
@@ -293,51 +301,13 @@ import "../styles/global.css";
             ))
           }
         </div>
-
-        <div class="mt-12 reveal-up">
-          <div class="bg-gray-100 p-8 rounded-lg">
-            <h3 class="text-2xl font-bold mb-6 text-center">
-              Galería de Imágenes
-            </h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div class="overflow-hidden rounded-lg gallery-item">
-                <img
-                  src="https://framerusercontent.com/images/3giLxVdcqWLlmJFZ0y77g6Ouk.jpg"
-                  alt="Galería 1"
-                  class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div class="overflow-hidden rounded-lg gallery-item">
-                <img
-                  src="https://framerusercontent.com/images/d5Vj0iiy1LR0PKi9qNaPE76f3Y.jpg"
-                  alt="Galería 2"
-                  class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div class="overflow-hidden rounded-lg gallery-item">
-                <img
-                  src="https://framerusercontent.com/images/isYKHE5qDfA3zYnv9Yz7UYuB8Y.jpg"
-                  alt="Galería 3"
-                  class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div class="overflow-hidden rounded-lg gallery-item">
-                <img
-                  src="https://framerusercontent.com/images/UFpD5rgCT7agyDWLhTZVB2Mns.jpg"
-                  alt="Galería 4"
-                  class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <section id="contacto" class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <h2
-          class="text-3xl font-bold text-center mb-12 text-blue-600 reveal-title"
+          class="text-3xl font-bold text-center mb-12 colorPrincipalTexto reveal-title"
         >
           Contacto
         </h2>
@@ -349,7 +319,7 @@ import "../styles/global.css";
               <h3 class="text-2xl font-bold mb-6">Información de Contacto</h3>
               <div class="space-y-4">
                 <div class="flex items-start">
-                  <div class="text-blue-600 mr-4">
+                  <div class="colorPrincipalTexto mr-4">
                     <i class="fas fa-map-marker-alt text-xl"></i>
                   </div>
                   <div>
@@ -358,7 +328,7 @@ import "../styles/global.css";
                   </div>
                 </div>
                 <div class="flex items-start">
-                  <div class="text-blue-600 mr-4">
+                  <div class="colorPrincipalTexto mr-4">
                     <i class="fas fa-phone text-xl"></i>
                   </div>
                   <div>
@@ -367,7 +337,7 @@ import "../styles/global.css";
                   </div>
                 </div>
                 <div class="flex items-start">
-                  <div class="text-blue-600 mr-4">
+                  <div class="colorPrincipalTexto mr-4">
                     <i class="fas fa-envelope text-xl"></i>
                   </div>
                   <div>
@@ -376,7 +346,7 @@ import "../styles/global.css";
                   </div>
                 </div>
                 <div class="flex items-start">
-                  <div class="text-blue-600 mr-4">
+                  <div class="colorPrincipalTexto mr-4">
                     <i class="fas fa-clock text-xl"></i>
                   </div>
                   <div>
@@ -391,7 +361,7 @@ import "../styles/global.css";
                   <a
                     target="_blank"
                     href={datosFicticios.redesSociales.facebook}
-                    class="text-blue-600 hover:text-blue-800 text-2xl transition-transform duration-300 hover:scale-125"
+                    class="colorPrincipalTexto colorPrincipalHover text-2xl transition-transform duration-300 hover:scale-125"
                   >
                     <i class="fab fa-facebook"></i>
                   </a>
@@ -461,7 +431,7 @@ import "../styles/global.css";
                 </div>
                 <button
                   type="submit"
-                  class="cursor-pointer w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  class="cursor-pointer w-full colorPrincipalFondo text-white py-3 rounded-lg font-medium hover:colorPrincipalFondo transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   Enviar mensaje
                 </button>
@@ -483,14 +453,14 @@ import "../styles/global.css";
       <div class="w-full h-full">
         <iframe
           class="w-full h-full border-0"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.0921302554757!2d-65.78878902363004!3d-28.476771960365028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9424295c6a04f6c3%3A0xea849c1fd25961a2!2sNodo%20tecnol%C3%B3gico-%20Catamarca%20Capital!5e0!3m2!1ses!2sar!4v1747747381983!5m2!1ses!2sar"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.139332028271!2d-65.76173892363113!3d-28.44521595897456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94242f2efe6dc1c7%3A0x66d0f5aa4e4c1aae!2sPunto%20Giro!5e0!3m2!1ses!2sar!4v1747755697527!5m2!1ses!2sar"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
 
-    <footer class="bg-blue-800 text-white py-12">
+    <footer class="colorPrincipalFondo text-white py-12">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div
@@ -526,7 +496,8 @@ import "../styles/global.css";
                 <a
                   href="#inicio"
                   class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
-                  >Inicio</a>
+                  >Inicio</a
+                >
               </li>
               <li>
                 <a
@@ -586,7 +557,7 @@ import "../styles/global.css";
             </ul>
           </div>
         </div>
-        <div class="border-t border-blue-700 mt-8 pt-8 text-center">
+        <div class="border-t colorPrincipalBorde mt-8 pt-8 text-center">
           <p>
             &copy; {new Date().getFullYear()}
             {datosFicticios.nombre}. Todos los derechos reservados.
