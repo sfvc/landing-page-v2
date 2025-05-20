@@ -1,14 +1,598 @@
 ---
+import { datosFicticios } from "../examples/datosFicticios.astro";
+import { noticias } from "../examples/noticias.astro";
+import { novedades } from "../examples/novedades.astro";
+import CardNoticias from "../examples/CardNoticias.astro";
 import "../styles/global.css";
 ---
 
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{datosFicticios.nombre} - Catamarca</title>
     <link rel="icon" type="image/png" href="/favicon_CATACAPI.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="../scripts/main.js"></script>
   </head>
-  <body>
-    <h1 class="text-3xl font-bold underline text-center">Hello world!</h1>
+
+  <body class="bg-gray-50 text-gray-800 font-sans">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <img
+            src="https://framerusercontent.com/images/BxsMmsF1qeplMYFIuqNZ7hwNbo.png"
+            alt="Logo"
+            class="h-20 animate__animated animate__fadeIn"
+          />
+        </div>
+        <nav class="hidden md:flex space-x-6">
+          <a
+            href="#inicio"
+            class="text-blue-600 hover:text-blue-800 font-medium transition-all duration-300 hover:scale-105"
+            >Inicio</a
+          >
+          <a
+            href="#sobre-nosotros"
+            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            >Sobre Nosotros</a
+          >
+          <a
+            href="#noticias"
+            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            >Noticias</a
+          >
+          <a
+            href="#instalaciones"
+            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            >Instalaciones</a
+          >
+          <a
+            href="#contacto"
+            class="hover:text-blue-600 font-medium transition-all duration-300 hover:scale-105"
+            >Contacto</a
+          >
+        </nav>
+        <button class="md:hidden text-blue-600" id="menu-toggle">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      <!-- Menú móvil -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white w-full">
+        <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+          <a
+            href="#inicio"
+            class="text-blue-600 hover:text-blue-800 font-medium">Inicio</a
+          >
+          <a href="#sobre-nosotros" class="hover:text-blue-600 font-medium"
+            >Sobre Nosotros</a
+          >
+          <a href="#noticias" class="hover:text-blue-600 font-medium"
+            >Noticias</a
+          >
+          <a href="#instalaciones" class="hover:text-blue-600 font-medium"
+            >Instalaciones</a
+          >
+          <a href="#contacto" class="hover:text-blue-600 font-medium"
+            >Contacto</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <section
+      id="inicio"
+      class="bg-gradient-to-r from-blue-500 to-blue-700 text-white overflow-hidden"
+    >
+      <div
+        class="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center"
+      >
+        <div
+          class="md:w-1/2 mb-8 md:mb-0 animate__animated animate__fadeInLeft"
+        >
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Bienvenidos al {datosFicticios.nombre}
+          </h1>
+          <p class="text-xl mb-6">{datosFicticios.descripcion}</p>
+          <div class="flex space-x-4">
+            <a
+              href="#contacto"
+              class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              Contáctanos
+            </a>
+            <a
+              href="#noticias"
+              class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+            >
+              Últimas Noticias
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 animate__animated animate__fadeInRight">
+          <img
+            src="https://framerusercontent.com/images/Th20CAWtnUNYcMieNedRh70Y4i0.jpg"
+            alt="Imagen principal"
+            class="rounded-lg shadow-xl w-full transform transition-transform duration-500 hover:scale-105"
+          />
+        </div>
+      </div>
+
+      <div class="container mx-auto px-4 pb-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div
+            class="bg-white/20 backdrop-blur-sm p-4 rounded-lg animate__animated animate__fadeInUp"
+            style="animation-delay: 0.1s"
+          >
+            <div class="text-3xl font-bold mb-2 counter" data-target="500">
+              0
+            </div>
+            <div class="text-sm">Visitantes mensuales</div>
+          </div>
+          <div
+            class="bg-white/20 backdrop-blur-sm p-4 rounded-lg animate__animated animate__fadeInUp"
+            style="animation-delay: 0.2s"
+          >
+            <div class="text-3xl font-bold mb-2 counter" data-target="20">
+              0
+            </div>
+            <div class="text-sm">Proyectos activos</div>
+          </div>
+          <div
+            class="bg-white/20 backdrop-blur-sm p-4 rounded-lg animate__animated animate__fadeInUp"
+            style="animation-delay: 0.3s"
+          >
+            <div class="text-3xl font-bold mb-2 counter" data-target="15">
+              0
+            </div>
+            <div class="text-sm">Alianzas estratégicas</div>
+          </div>
+          <div
+            class="bg-white/20 backdrop-blur-sm p-4 rounded-lg animate__animated animate__fadeInUp"
+            style="animation-delay: 0.4s"
+          >
+            <div class="text-3xl font-bold mb-2 counter" data-target="300">
+              0
+            </div>
+            <div class="text-sm">Personas capacitadas</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-nosotros" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-blue-600 reveal-title"
+        >
+          Sobre Nosotros
+        </h2>
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-8 md:mb-0 reveal-left">
+            <img
+              src="https://framerusercontent.com/images/JMOsJdaa65mDOjxdRRzoSiCnac8.jpeg"
+              alt="Sobre nosotros"
+              class="rounded-lg shadow-md w-full transform transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+          <div class="md:w-1/2 md:pl-12 reveal-right">
+            <p class="text-lg mb-6">
+              El {datosFicticios.nombre} es un espacio diseñado para fomentar la
+              innovación, el aprendizaje y el desarrollo tecnológico en la comunidad
+              de Catamarca.
+            </p>
+            <p class="text-lg mb-6">
+              Ofrecemos instalaciones modernas, equipamiento de última
+              generación y programas educativos para todas las edades, con el
+              objetivo de reducir la brecha digital y potenciar el talento
+              local.
+            </p>
+            <p class="text-lg">
+              Trabajamos en colaboración con instituciones educativas, empresas
+              y el gobierno provincial para crear oportunidades de crecimiento y
+              desarrollo para todos los catamarqueños.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="noticias" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-blue-600 reveal-title"
+        >
+          Últimas Noticias
+        </h2>
+
+        <div class="mb-12 reveal-up">
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+          >
+            <div class="flex flex-col md:flex-row">
+              <div class="md:w-1/2">
+                <img
+                  src={noticias[0].imagen || "/placeholder.svg"}
+                  alt={noticias[0].titulo}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="md:w-1/2 p-8">
+                <span
+                  class="inline-block bg-blue-100 text-blue-600 text-sm font-medium px-3 py-1 rounded-full mb-4"
+                >
+                  Destacado
+                </span>
+                <span class="text-blue-600 text-sm font-medium block mb-2">
+                  {noticias[0].fecha}
+                </span>
+                <h3 class="text-2xl font-bold mb-4">{noticias[0].titulo}</h3>
+                <p class="text-gray-600 mb-6">{noticias[0].resumen}</p>
+                <a
+                  href={`/noticias/${noticias[0].id}`}
+                  class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105"
+                >
+                  Leer artículo completo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {
+            noticias.slice(1, 4).map((item, index) => (
+              <div class={`reveal-item-${index + 1}`}>
+                <CardNoticias noticias={item} />
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="text-center mt-12 reveal-up">
+          <a
+            href="/noticias"
+            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+          >
+            Ver todas las noticias
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instalaciones con animación -->
+    <section id="instalaciones" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-blue-600 reveal-title"
+        >
+          Nuestras Instalaciones
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {
+            novedades.map((feature, index) => (
+              <div
+                class={`bg-gray-50 p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-all duration-300 hover:scale-105 hover:bg-blue-50 feature-card-${index + 1}`}
+              >
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-4 transform transition-transform duration-500 hover:rotate-12">
+                  <i class={`fas fa-${feature.icon} text-2xl`} />
+                </div>
+                <h3 class="text-xl font-bold mb-3">{feature.titulo}</h3>
+                <p class="text-gray-600">{feature.descripcion}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-12 reveal-up">
+          <div class="bg-gray-100 p-8 rounded-lg">
+            <h3 class="text-2xl font-bold mb-6 text-center">
+              Galería de Imágenes
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="overflow-hidden rounded-lg gallery-item">
+                <img
+                  src="https://framerusercontent.com/images/3giLxVdcqWLlmJFZ0y77g6Ouk.jpg"
+                  alt="Galería 1"
+                  class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div class="overflow-hidden rounded-lg gallery-item">
+                <img
+                  src="https://framerusercontent.com/images/d5Vj0iiy1LR0PKi9qNaPE76f3Y.jpg"
+                  alt="Galería 2"
+                  class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div class="overflow-hidden rounded-lg gallery-item">
+                <img
+                  src="https://framerusercontent.com/images/isYKHE5qDfA3zYnv9Yz7UYuB8Y.jpg"
+                  alt="Galería 3"
+                  class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div class="overflow-hidden rounded-lg gallery-item">
+                <img
+                  src="https://framerusercontent.com/images/UFpD5rgCT7agyDWLhTZVB2Mns.jpg"
+                  alt="Galería 4"
+                  class="w-full h-32 object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-blue-600 reveal-title"
+        >
+          Contacto
+        </h2>
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/2 mb-8 md:mb-0 reveal-left">
+            <div
+              class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              <h3 class="text-2xl font-bold mb-6">Información de Contacto</h3>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div class="text-blue-600 mr-4">
+                    <i class="fas fa-map-marker-alt text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Dirección</h4>
+                    <p>{datosFicticios.direccion}</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="text-blue-600 mr-4">
+                    <i class="fas fa-phone text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Teléfono</h4>
+                    <p>{datosFicticios.telefono}</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="text-blue-600 mr-4">
+                    <i class="fas fa-envelope text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Email</h4>
+                    <p>{datosFicticios.email}</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="text-blue-600 mr-4">
+                    <i class="fas fa-clock text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Horario de Atención</h4>
+                    <p>{datosFicticios.horario}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <h4 class="font-bold mb-4">Síguenos en redes sociales</h4>
+                <div class="flex space-x-4">
+                  <a
+                    target="_blank"
+                    href={datosFicticios.redesSociales.facebook}
+                    class="text-blue-600 hover:text-blue-800 text-2xl transition-transform duration-300 hover:scale-125"
+                  >
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href={datosFicticios.redesSociales.instagram}
+                    class="text-red-600 hover:text-red-800 text-2xl transition-transform duration-300 hover:scale-125"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2 md:pl-8 reveal-right">
+            <div
+              class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              <h3 class="text-2xl font-bold mb-6">Envíanos un mensaje</h3>
+              <form id="contactForm">
+                <div class="mb-4">
+                  <label for="name" class="block text-gray-700 mb-2"
+                    >Nombre completo</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                    placeholder="Tu nombre"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="email" class="block text-gray-700 mb-2"
+                    >Correo electrónico</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                    placeholder="Tu email"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <label for="subject" class="block text-gray-700 mb-2"
+                    >Asunto</label
+                  >
+                  <input
+                    type="text"
+                    id="subject"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                    placeholder="Asunto del mensaje"
+                    required
+                  />
+                </div>
+                <div class="mb-6">
+                  <label for="message" class="block text-gray-700 mb-2"
+                    >Mensaje</label
+                  >
+                  <textarea
+                    id="message"
+                    rows="4"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                    placeholder="Tu mensaje"
+                    required></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="cursor-pointer w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                  Enviar mensaje
+                </button>
+                <div
+                  id="formSuccess"
+                  class="hidden mt-4 p-3 bg-green-100 text-green-700 rounded-lg"
+                >
+                  ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo
+                  pronto.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="h-96 bg-gray-200 reveal-up">
+      <div class="w-full h-full">
+        <iframe
+          class="w-full h-full border-0"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.0921302554757!2d-65.78878902363004!3d-28.476771960365028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9424295c6a04f6c3%3A0xea849c1fd25961a2!2sNodo%20tecnol%C3%B3gico-%20Catamarca%20Capital!5e0!3m2!1ses!2sar!4v1747747381983!5m2!1ses!2sar"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <footer class="bg-blue-800 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="animate__animated animate__fadeIn"
+            style="animation-delay: 0.1s"
+          >
+            <h3 class="text-xl font-bold mb-4">Acerca de nosotros</h3>
+            <p class="mb-4">{datosFicticios.descripcion}</p>
+            <div class="flex space-x-4">
+              <a
+                target="_blank"
+                href={datosFicticios.redesSociales.facebook}
+                class="text-white hover:text-blue-200 transition-transform duration-300 hover:scale-125"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                target="_blank"
+                href={datosFicticios.redesSociales.instagram}
+                class="text-white hover:text-blue-200 transition-transform duration-300 hover:scale-125"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div
+            class="animate__animated animate__fadeIn"
+            style="animation-delay: 0.2s"
+          >
+            <h3 class="text-xl font-bold mb-4">Enlaces rápidos</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#inicio"
+                  class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                  >Inicio</a>
+              </li>
+              <li>
+                <a
+                  href="#sobre-nosotros"
+                  class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                  >Sobre Nosotros</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#noticias"
+                  class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                  >Noticias</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#instalaciones"
+                  class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                  >Instalaciones</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contacto"
+                  class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                  >Contacto</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/noticias"
+                  class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                  >Todas las Noticias</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div
+            class="animate__animated animate__fadeIn"
+            style="animation-delay: 0.3s"
+          >
+            <h3 class="text-xl font-bold mb-4">Contacto</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                <span>{datosFicticios.direccion}</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-phone mr-3 mt-1"></i>
+                <span>{datosFicticios.telefono}</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-envelope mr-3 mt-1"></i>
+                <span>{datosFicticios.email}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-blue-700 mt-8 pt-8 text-center">
+          <p>
+            &copy; {new Date().getFullYear()}
+            {datosFicticios.nombre}. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

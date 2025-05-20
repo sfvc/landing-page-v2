@@ -1,0 +1,34 @@
+---
+interface Props {
+  noticias: {
+    id: number;
+    titulo: string;
+    fecha: string;
+    resumen: string;
+    imagen: string;
+  };
+}
+
+const { noticias } = Astro.props;
+---
+
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+  <div class="overflow-hidden">
+    <img
+      src={noticias.imagen || "/placeholder.svg"}
+      alt={noticias.titulo}
+      class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+    />
+  </div>
+  <div class="p-6">
+    <span class="text-blue-600 text-sm font-medium">{noticias.fecha}</span>
+    <h3 class="text-xl font-bold mt-2 mb-3">{noticias.titulo}</h3>
+    <p class="text-gray-600 mb-4">{noticias.resumen}</p>
+    <a
+      href={`/noticias/${noticias.id}`}
+      class="inline-block text-blue-600 font-medium hover:text-blue-800 transition-all duration-300 hover:translate-x-1"
+    >
+      Leer más <i class="fas fa-arrow-right ml-1 text-sm"></i>
+    </a>
+  </div>
+</div>
