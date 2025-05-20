@@ -1,0 +1,38 @@
+---
+import { datosFicticios } from "./datosFicticios.astro";
+---
+
+<section id="sobre-nosotros" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 colorPrincipalTexto reveal-title">
+      Sobre Nosotros
+    </h2>
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-8 md:mb-0 reveal-left">
+        <img
+          src="https://www.catamarcaciudad.gob.ar/wp-content/uploads/punto-violeta.jpg"
+          alt="Sobre Punto Violeta"
+          class="rounded-lg shadow-md w-full transform transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+      <div class="md:w-1/2 md:pl-12 reveal-right">
+        <p class="text-lg mb-6">
+          El {datosFicticios.nombre} es un dispositivo de la Secretaría de Mujeres, Género y
+          Diversidad de la Municipalidad de San Fernando del Valle de Catamarca que brinda
+          atención, acompañamiento y asesoramiento integral a mujeres y personas LGTBIQ+ en
+          situación de violencia de género.
+        </p>
+        <p class="text-lg mb-6">
+          En sus espacios físicos y móviles, Punto Violeta ofrece asesoramiento legal, psicológico
+          y social; línea gratuita 0800 444 7382; derivaciones a redes de salud y seguridad; y
+          talleres de prevención y sensibilización.
+        </p>
+        <p class="text-lg">
+          Además, la Casa Punto Violeta, ubicada en Rivadavia 252, funciona como Centro Municipal
+          de Protección Transitorio, brindando alojamiento de 72 horas hasta 15 días, con equipos
+          profesionales que garantizan un entorno seguro y confidencial para las mujeres y sus hijos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

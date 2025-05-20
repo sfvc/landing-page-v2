@@ -23,14 +23,14 @@ const { noticias } = Astro.props;
     />
   </div>
   <div class="p-6 flex flex-col flex-grow">
-    <span class="text-blue-600 text-sm font-medium">{noticias.fecha}</span>
+    <span class="colorPrincipalTexto text-sm font-medium">{noticias.fecha}</span>
     <h3 class="text-xl font-bold mt-2 mb-3">{noticias.titulo}</h3>
     <p class="text-gray-600 mb-4 line-clamp-2">
       {noticias.resumen}
     </p>
     <a
       href={`/noticias/${noticias.id}`}
-      class="mt-auto inline-block text-blue-600 font-medium hover:text-blue-800 transition-all duration-300 hover:translate-x-1"
+      class="mt-auto inline-block colorPrincipalTexto font-medium hover transition-all duration-300 hover:translate-x-1"
     >
       Leer más <i class="fas fa-arrow-right ml-1 text-sm"></i>
     </a>

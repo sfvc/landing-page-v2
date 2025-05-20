@@ -1,0 +1,109 @@
+---
+import { datosFicticios } from "../datos/datosFicticios.astro";
+---
+
+<footer class="colorPrincipalFondo text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+                class="animate__animated animate__fadeIn"
+                style="animation-delay: 0.1s"
+            >
+                <h3 class="text-xl font-bold mb-4">Acerca de nosotros</h3>
+                <p class="mb-4">{datosFicticios.descripcion}</p>
+                <div class="flex space-x-4">
+                    <a
+                        target="_blank"
+                        href={datosFicticios.redesSociales.facebook}
+                        class="text-white hover:text-blue-200 transition-transform duration-300 hover:scale-125"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a
+                        target="_blank"
+                        href={datosFicticios.redesSociales.instagram}
+                        class="text-white hover:text-blue-200 transition-transform duration-300 hover:scale-125"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div
+                class="animate__animated animate__fadeIn"
+                style="animation-delay: 0.2s"
+            >
+                <h3 class="text-xl font-bold mb-4">Enlaces rápidos</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a
+                            href="#inicio"
+                            class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                            >Inicio</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#sobre-nosotros"
+                            class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                            >Sobre Nosotros</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#noticias"
+                            class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                            >Noticias</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#instalaciones"
+                            class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                            >Instalaciones</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#contacto"
+                            class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                            >Contacto</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/noticias"
+                            class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                            >Todas las Noticias</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div
+                class="animate__animated animate__fadeIn"
+                style="animation-delay: 0.3s"
+            >
+                <h3 class="text-xl font-bold mb-4">Contacto</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                        <span>{datosFicticios.direccion}</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone mr-3 mt-1"></i>
+                        <span>{datosFicticios.telefono}</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope mr-3 mt-1"></i>
+                        <span>{datosFicticios.email}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t colorPrincipalBorde mt-8 pt-8 text-center">
+            <p>
+                &copy; {new Date().getFullYear()}
+                {datosFicticios.nombre}. Todos los derechos reservados.
+            </p>
+        </div>
+    </div>
+</footer>

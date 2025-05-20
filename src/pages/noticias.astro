@@ -1,8 +1,9 @@
 ---
-import { datosFicticios } from "../examples/datosFicticios.astro";
 import "../styles/global.css";
-import CardNoticias from "../examples/CardNoticias.astro";
-import { noticiasCompletas } from "../examples/noticiasCompletas.astro";
+import { datosFicticios } from "../datos/datosFicticios.astro";
+import CardNoticias from "../datos/CardNoticias.astro";
+import { noticiasCompletas } from "../datos/noticiasCompletas.astro";
+import Navbar from "../components/navbar.astro";
 
 const categorias = [
   "Todas",
@@ -32,74 +33,9 @@ const categorias = [
 
   <body class="bg-gray-50 text-gray-800 font-sans">
 
-    <header class="bg-white shadow-md sticky top-0 z-50">
-      <div
-        class="container mx-auto px-4 py-3 flex justify-between items-center"
-      >
-        <div class="flex items-center space-x-2">
-          <a href="/">
-            <img
-              src="./logo_CATACAPI_oscuro.png"
-              alt="Logo"
-              class="h-10"
-            />
-          </a>
-        </div>
-        <nav class="hidden md:flex space-x-6">
-          <a
-            href="/"
-            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
-            >Inicio</a
-          >
-          <a
-            href="/#sobre-nosotros"
-            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
-            >Sobre Nosotros</a
-          >
-          <a
-            href="/#noticias"
-            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
-            >Noticias</a
-          >
-          <a
-            href="/#instalaciones"
-            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
-            >Instalaciones</a
-          >
-          <a
-            href="/#contacto"
-            class="colorPrincipalHover font-medium transition-all duration-300 hover:scale-105"
-            >Contacto</a
-          >
-        </nav>
-        <button class="md:hidden colorPrincipalTexto" id="menu-toggle">
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-      </div>
-      <!-- Menú móvil -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white w-full">
-        <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-          <a
-            href="/"
-            class="colorPrincipalHover font-medium">Inicio</a
-          >
-          <a href="/#sobre-nosotros" class="colorPrincipalHover font-medium"
-            >Sobre Nosotros</a
-          >
-          <a href="/#noticias" class="colorPrincipalHover font-medium"
-            >Noticias</a
-          >
-          <a href="/#instalaciones" class="colorPrincipalHover font-medium"
-            >Instalaciones</a
-          >
-          <a href="/#contacto" class="colorPrincipalHover font-medium"
-            >Contacto</a
-          >
-        </div>
-      </div>
-    </header>
+    <Navbar />
 
-    <section class="bg-gradient-to-r from-[#009bac] to-[#007886] text-white py-12">
+    <section class="bg-gradient-to-r colorPrincipalFondo text-white py-12">
       <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4 animate__animated animate__fadeInDown">
           Noticias y Eventos
@@ -115,7 +51,7 @@ const categorias = [
         <div class="flex flex-wrap justify-center gap-4">
           {categorias.map((category, index) => (
             <button
-              class={`cursor-pointer px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 ${index === 0 ? 'colorPrincipalFondo text-white' : 'bg-gray-100 text-black hover:colorPrincipalFondo hover:text-white'}`}
+              class={`cursor-pointer px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 ${index === 0 ? 'colorPrincipalFondo text-white' : 'bg-gray-100 text-black colorPrincipalHover hover:text-white'}`}
               data-category={category}
             >
               {category}
@@ -226,7 +162,7 @@ const categorias = [
             </ul>
           </div>
         </div>
-        <div class="border-t border-blue-700 mt-8 pt-8 text-center">
+        <div class="border-t colorPrincipalBorde mt-8 pt-8 text-center">
           <p>
             &copy; {new Date().getFullYear()}
             {datosFicticios.nombre}. Todos los derechos reservados.

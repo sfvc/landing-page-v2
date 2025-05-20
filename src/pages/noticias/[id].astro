@@ -1,8 +1,8 @@
 ---
-import { datosFicticios } from "../../examples/datosFicticios.astro";
-import { noticias } from "../../examples/noticias.astro";
+import { datosFicticios } from "../../datos/datosFicticios.astro";
+import { noticias } from "../../datos/noticias.astro";
 import "../../styles/global.css";
-import CardNoticias from "../../examples/CardNoticias.astro";
+import CardNoticias from "../../datos/CardNoticias.astro";
 
 export function getStaticPaths() {
   return noticias.map((noticia) => ({
@@ -70,11 +70,7 @@ const fullContent = `
       >
         <div class="flex items-center space-x-2">
           <a href="/">
-            <img
-              src="../logo_CATACAPI_oscuro.png"
-              alt="Logo"
-              class="h-10"
-            />
+            <img src="../logo_CATACAPI_oscuro.png" alt="Logo" class="h-10" />
           </a>
         </div>
         <nav class="hidden md:flex space-x-6">
@@ -111,10 +107,7 @@ const fullContent = `
       <!-- Menú móvil -->
       <div id="mobile-menu" class="hidden md:hidden bg-white w-full">
         <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-          <a
-            href="/"
-            class="colorPrincipalHover font-medium">Inicio</a
-          >
+          <a href="/" class="colorPrincipalHover font-medium">Inicio</a>
           <a href="/#sobre-nosotros" class="colorPrincipalHover font-medium"
             >Sobre Nosotros</a
           >
@@ -147,10 +140,14 @@ const fullContent = `
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
           <div class="mb-8 animate__animated animate__fadeIn">
-            <span class="inline-block bg-blue-100 colorPrincipalTexto text-sm font-medium px-3 py-1 rounded-full mb-4">
+            <span
+              class="inline-block bg-blue-100 colorPrincipalTexto text-sm font-medium px-3 py-1 rounded-full mb-4"
+            >
               Noticia
             </span>
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">{noticia.titulo}</h1>
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">
+              {noticia.titulo}
+            </h1>
             <div class="flex items-center text-gray-500 mb-6">
               <span class="flex items-center">
                 <i class="far fa-calendar mr-2"></i>
@@ -164,7 +161,10 @@ const fullContent = `
             </div>
           </div>
 
-          <div class="mb-8 animate__animated animate__fadeIn" style="animation-delay: 0.2s">
+          <div
+            class="mb-8 animate__animated animate__fadeIn"
+            style="animation-delay: 0.2s"
+          >
             <img
               src={noticia.imagen || "/placeholder.svg"}
               alt={noticia.titulo}
@@ -172,36 +172,31 @@ const fullContent = `
             />
           </div>
 
-          <div class="mb-8 animate__animated animate__fadeIn" style="animation-delay: 0.3s">
-            <p class="text-xl font-medium text-gray-700 border-l-4 colorPrincipalBorde pl-4 py-2">
+          <div
+            class="mb-8 animate__animated animate__fadeIn"
+            style="animation-delay: 0.3s"
+          >
+            <p
+              class="text-xl font-medium text-gray-700 border-l-4 colorPrincipalBorde pl-4 py-2"
+            >
               {noticia.resumen}
             </p>
           </div>
 
-          <div class="prose prose-lg max-w-none animate__animated animate__fadeIn" style="animation-delay: 0.4s">
+          <div
+            class="prose prose-lg max-w-none animate__animated animate__fadeIn"
+            style="animation-delay: 0.4s"
+          >
             <Fragment set:html={fullContent} />
           </div>
 
           <div class="mt-12 pt-6 border-t border-gray-200">
             <div class="flex items-center justify-between">
-              <div>
-                <h4 class="font-bold mb-2">Compartir esta noticia</h4>
-                <div class="flex space-x-4">
-                  <a href="#" class="text-blue-600 hover:text-blue-800 transition-transform duration-300 hover:scale-125">
-                    <i class="fab fa-facebook-f text-xl"></i>
-                  </a>
-                  <a href="#" class="text-blue-400 hover:text-blue-600 transition-transform duration-300 hover:scale-125">
-                    <i class="fab fa-twitter text-xl"></i>
-                  </a>
-                  <a href="#" class="text-green-600 hover:text-green-800 transition-transform duration-300 hover:scale-125">
-                    <i class="fab fa-whatsapp text-xl"></i>
-                  </a>
-                  <a href="#" class="text-blue-700 hover:text-blue-900 transition-transform duration-300 hover:scale-125">
-                    <i class="fab fa-linkedin-in text-xl"></i>
-                  </a>
-                </div>
-              </div>
-              <a href="/noticias" class="inline-flex items-center colorPrincipalTexto colorPrincipalHover">
+              <div></div>
+              <a
+                href="/noticias"
+                class="inline-flex items-center colorPrincipalTexto colorPrincipalHover"
+              >
                 <i class="fas fa-arrow-left mr-2"></i>
                 Volver a noticias
               </a>
@@ -209,93 +204,116 @@ const fullContent = `
           </div>
         </div>
       </div>
+
+      <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-12 colorPrincipalTexto">
+            Noticias relacionadas
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {
+              relatedNews.map((item, index) => (
+                <div
+                  class="animate__animated animate__fadeIn"
+                  style={`animation-delay: ${index * 0.1}s`}
+                >
+                  <CardNoticias noticias={item} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <footer class="colorPrincipalFondo text-white py-12">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="text-xl font-bold mb-4">Acerca de nosotros</h3>
+              <p class="mb-4">{datosFicticios.descripcion}</p>
+              <div class="flex space-x-4">
+                <a
+                  target="_blank"
+                  href={datosFicticios.redesSociales.facebook}
+                  class="text-white hover:text-blue-200 transition-transform duration-300 hover:scale-125"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  target="_blank"
+                  href={datosFicticios.redesSociales.instagram}
+                  class="text-white hover:text-blue-200 transition-transform duration-300 hover:scale-125"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-4">Enlaces rápidos</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="/"
+                    class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                    >Inicio</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/#sobre-nosotros"
+                    class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                    >Sobre Nosotros</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/noticias"
+                    class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                    >Noticias</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/#instalaciones"
+                    class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                    >Instalaciones</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/#contacto"
+                    class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
+                    >Contacto</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-4">Contacto</h3>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                  <span>{datosFicticios.direccion}</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-phone mr-3 mt-1"></i>
+                  <span>{datosFicticios.telefono}</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-envelope mr-3 mt-1"></i>
+                  <span>{datosFicticios.email}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="border-t colorPrincipalBorde mt-8 pt-8 text-center">
+            <p>
+              &copy; {new Date().getFullYear()}
+              {datosFicticios.nombre}. Todos los derechos reservados.
+            </p>
+          </div>
+        </div>
+      </footer>
     </article>
-
-    <section class="py-12 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12 colorPrincipalTexto">
-          Noticias relacionadas
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {relatedNews.map((item, index) => (
-            <div class="animate__animated animate__fadeIn" style={`animation-delay: ${index * 0.1}s`}>
-              <CardNoticias noticias={item} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <footer class="colorPrincipalFondo text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 class="text-xl font-bold mb-4">Acerca de nosotros</h3>
-            <p class="mb-4">{datosFicticios.descripcion}</p>
-            <div class="flex space-x-4">
-              <a
-                target="_blank"
-                href={datosFicticios.redesSociales.facebook}
-                class="text-white hover:text-blue-200 transition-transform duration-300 hover:scale-125"
-              >
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a
-                target="_blank"
-                href={datosFicticios.redesSociales.instagram}
-                class="text-white hover:text-blue-200 transition-transform duration-300 hover:scale-125"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-4">Enlaces rápidos</h3>
-            <ul class="space-y-2">
-              <li><a href="/" class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block">Inicio</a></li>
-              <li>
-                <a href="/#sobre-nosotros" class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
-                  >Sobre Nosotros</a
-                >
-              </li>
-              <li>
-                <a href="/noticias" class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block">Noticias</a>
-              </li>
-              <li>
-                <a href="/#instalaciones" class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block"
-                  >Instalaciones</a
-                >
-              </li>
-              <li>
-                <a href="/#contacto" class="hover:text-blue-200 transition-all duration-300 hover:translate-x-2 inline-block">Contacto</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-4">Contacto</h3>
-            <ul class="space-y-2">
-              <li class="flex items-start">
-                <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
-                <span>{datosFicticios.direccion}</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-phone mr-3 mt-1"></i>
-                <span>{datosFicticios.telefono}</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-envelope mr-3 mt-1"></i>
-                <span>{datosFicticios.email}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="border-t colorPrincipalBorde mt-8 pt-8 text-center">
-          <p>
-            &copy; {new Date().getFullYear()}
-            {datosFicticios.nombre}. Todos los derechos reservados.
-          </p>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>

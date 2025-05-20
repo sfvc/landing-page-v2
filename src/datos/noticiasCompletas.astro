@@ -1,0 +1,23 @@
+---
+import { noticias } from "../datos/noticias.astro";
+
+export const noticiasCompletas = [
+  ...noticias,
+  {
+    id: 4,
+    titulo: "Punto Violeta Móvil inicia recorrido por la ciudad",
+    fecha: "15 de febrero, 2023",
+    resumen:
+      "El Punto Violeta Móvil inició su recorrido acercando servicios de contención y asesoramiento a barrios de Catamarca Capital, fortaleciendo el acceso a la prevención de violencia de género.",  // :contentReference[oaicite:0]{index=0}
+    imagen: "https://www.catamarcaciudad.gob.ar/wp-content/uploads/Visita-funcionaria-bonaerense-3.jpg",
+  },
+  {
+    id: 5,
+    titulo: "“De eso no se habla”: espacio de diálogo en Punto Violeta",
+    fecha: "27 de septiembre, 2024",
+    resumen:
+      "Más de 100 mujeres participaron en el taller “De eso no se habla” en Punto Violeta, generando espacios de diálogo y visibilización de las agresiones sexistas.",  // :contentReference[oaicite:1]{index=1}
+    imagen: "https://iplido.org.ar/wp-content/uploads/2023/06/unnamed-file-17.jpg",
+  },
+];
+---

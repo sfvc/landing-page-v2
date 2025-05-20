@@ -1,0 +1,28 @@
+---
+import { novedades } from "../datos/novedades.astro";
+---
+
+    <section id="instalaciones" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center mb-12 colorPrincipalTexto reveal-title"
+        >
+          Nuestras Instalaciones
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {
+            novedades.map((feature, index) => (
+              <div
+                class={`bg-gray-50 p-6 rounded-lg shadow-sm text-center hover:shadow-md transition-all duration-300 hover:scale-105 hover:bg-blue-50 feature-card-${index + 1}`}
+              >
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 colorPrincipalTexto rounded-full mb-4 transform transition-transform duration-500 hover:rotate-12">
+                  <i class={`fas fa-${feature.icon} text-2xl`} />
+                </div>
+                <h3 class="text-xl font-bold mb-3">{feature.titulo}</h3>
+                <p class="text-gray-600">{feature.descripcion}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
