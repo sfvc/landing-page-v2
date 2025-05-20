@@ -15,22 +15,22 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #EE82EE;
+    background-color: #3E5A7E;
     border-radius: 6px;
 }
 
 .colorPrincipalFondo {
-    background-color: #EE82EE;
+    background-color: #3E5A7E;
 }
 
 .colorPrincipalTexto {
-    color: #f146f1;
+    color: #4b6d9a;
 }
 
 .colorPrincipalHover:hover {
-    color: #ff2eff;
+    color: #577eb1;
 }
 
 .colorPrincipalBorde {
-    border-color: #d150d1;
+    border-color: #334a67;
 }

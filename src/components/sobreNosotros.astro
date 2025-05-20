@@ -1,0 +1,39 @@
+---
+import { datosFicticios } from "../datos/datosFicticios.astro";
+---
+
+<section id="sobre-nosotros" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 colorPrincipalTexto reveal-title">
+      Sobre Nosotros
+    </h2>
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-8 md:mb-0 reveal-left">
+        <img
+          src="https://www.catamarcaciudad.gob.ar/wp-content/uploads/IMG-20200728-WA0016.jpg"
+          alt={`Sobre ${datosFicticios.nombre}`}
+          class="rounded-lg shadow-md w-full transform transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+      <div class="md:w-1/2 md:pl-12 reveal-right">
+        <p class="text-lg mb-6">
+          El {datosFicticios.nombre} es un espacio municipal de la Dirección de Juventud de la
+          Municipalidad de San Fernando del Valle de Catamarca, destinado a jóvenes de 15 a 35 años.
+        </p>
+        <p class="text-lg mb-6">
+          Ofrece talleres gratuitos de formación (robótica, programación, oratoria, muralismo, etc.),
+          espacios de estudio con internet y equipamiento multimedia, acompañamiento psicológico
+          y orientación vocacional, así como actividades recreativas, culturales y deportivas.
+        </p>
+        <p class="text-lg">
+          Funciona en Av. Máximo Victoria 143, de lunes a viernes de 8:00 a 13:00 y de 15:00 a 20:00,
+          según la programación de cada taller.
+          Seguinos en
+          <a href={datosFicticios.redesSociales.facebook} target="_blank" class="text-colorPrincipal underline">Facebook</a>
+          y
+          <a href={datosFicticios.redesSociales.instagram} target="_blank" class="text-colorPrincipal underline">Instagram</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
