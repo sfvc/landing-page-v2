@@ -1,5 +1,5 @@
 ---
-import { datosFicticios } from "../datos/datosFicticios.astro";
+import { datosCompletos } from "../datos/datosCompletos.astro";
 ---
 
 <section id="sobre-nosotros" class="py-16 bg-white">
@@ -11,13 +11,13 @@ import { datosFicticios } from "../datos/datosFicticios.astro";
       <div class="md:w-1/2 mb-8 md:mb-0 reveal-left">
         <img
           src="https://www.catamarcaciudad.gob.ar/wp-content/uploads/IMG-20200728-WA0016.jpg"
-          alt={`Sobre ${datosFicticios.nombre}`}
+          alt={`Sobre ${datosCompletos.nombre}`}
           class="rounded-lg shadow-md w-full transform transition-transform duration-500 hover:scale-105"
         />
       </div>
       <div class="md:w-1/2 md:pl-12 reveal-right">
         <p class="text-lg mb-6">
-          El {datosFicticios.nombre} es un espacio municipal de la Dirección de Juventud de la
+          El {datosCompletos.nombre} es un espacio municipal de la Dirección de Juventud de la
           Municipalidad de San Fernando del Valle de Catamarca, destinado a jóvenes de 15 a 35 años.
         </p>
         <p class="text-lg mb-6">
@@ -29,9 +29,9 @@ import { datosFicticios } from "../datos/datosFicticios.astro";
           Funciona en Av. Máximo Victoria 143, de lunes a viernes de 8:00 a 13:00 y de 15:00 a 20:00,
           según la programación de cada taller.
           Seguinos en
-          <a href={datosFicticios.redesSociales.facebook} target="_blank" class="text-colorPrincipal underline">Facebook</a>
-          y
-          <a href={datosFicticios.redesSociales.instagram} target="_blank" class="text-colorPrincipal underline">Instagram</a>.
+          <a href={datosCompletos.redesSociales.facebook} target="_blank" class="text-colorPrincipal underline">Facebook</a>
+          e
+          <a href={datosCompletos.redesSociales.instagram} target="_blank" class="text-colorPrincipal underline">Instagram</a>.
         </p>
       </div>
     </div>

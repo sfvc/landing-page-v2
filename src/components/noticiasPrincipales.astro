@@ -1,5 +1,5 @@
 ---
-import CardNoticias from "../datos/CardNoticias.astro";
+import NoticiasCard from "../components/noticiasCard.astro";
 import { noticias } from "../datos/noticias.astro";
 ---
 
@@ -53,7 +53,7 @@ import { noticias } from "../datos/noticias.astro";
             {
                 noticias.slice(1, 4).map((item, index) => (
                     <div class={`reveal-item-${index + 1}`}>
-                        <CardNoticias noticias={item} />
+                        <NoticiasCard noticias={item} />
                     </div>
                 ))
             }

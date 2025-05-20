@@ -1,5 +1,5 @@
 ---
-import { datosFicticios } from "../datos/datosFicticios.astro";
+import { datosCompletos } from "../datos/datosCompletos.astro";
 ---
 
 <section id="contacto" class="py-16 bg-gray-50">
@@ -24,7 +24,7 @@ import { datosFicticios } from "../datos/datosFicticios.astro";
                             </div>
                             <div>
                                 <h4 class="font-bold">Dirección</h4>
-                                <p>{datosFicticios.direccion}</p>
+                                <p>{datosCompletos.direccion}</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -33,7 +33,7 @@ import { datosFicticios } from "../datos/datosFicticios.astro";
                             </div>
                             <div>
                                 <h4 class="font-bold">Teléfono</h4>
-                                <p>{datosFicticios.telefono}</p>
+                                <p>{datosCompletos.telefono}</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -42,7 +42,7 @@ import { datosFicticios } from "../datos/datosFicticios.astro";
                             </div>
                             <div>
                                 <h4 class="font-bold">Email</h4>
-                                <p>{datosFicticios.email}</p>
+                                <p>{datosCompletos.email}</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -51,7 +51,7 @@ import { datosFicticios } from "../datos/datosFicticios.astro";
                             </div>
                             <div>
                                 <h4 class="font-bold">Horario de Atención</h4>
-                                <p>{datosFicticios.horario}</p>
+                                <p>{datosCompletos.horario}</p>
                             </div>
                         </div>
                     </div>
@@ -62,14 +62,14 @@ import { datosFicticios } from "../datos/datosFicticios.astro";
                         <div class="flex space-x-4">
                             <a
                                 target="_blank"
-                                href={datosFicticios.redesSociales.facebook}
+                                href={datosCompletos.redesSociales.facebook}
                                 class="text-blue-600 hover:text-blue-800 text-2xl transition-transform duration-300 hover:scale-125"
                             >
                                 <i class="fab fa-facebook"></i>
                             </a>
                             <a
                                 target="_blank"
-                                href={datosFicticios.redesSociales.instagram}
+                                href={datosCompletos.redesSociales.instagram}
                                 class="text-red-600 hover:text-red-800 text-2xl transition-transform duration-300 hover:scale-125"
                             >
                                 <i class="fab fa-instagram"></i>

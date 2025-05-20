@@ -1,127 +1,131 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
+    const botonMenu = document.getElementById("menu-toggle");
+    const menuMovil = document.getElementById("mobile-menu");
 
-    menuToggle?.addEventListener("click", function () {
-        mobileMenu?.classList.toggle("hidden");
+    botonMenu?.addEventListener("click", function () {
+        menuMovil?.classList.toggle("hidden");
     });
 
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 2000;
-        const step = target / (duration / 16);
+    const contadores = document.querySelectorAll('.counter');
 
-        let current = 0;
-        const updateCounter = () => {
-            current += step;
-            if (current < target) {
-                counter.textContent = Math.floor(current);
-                requestAnimationFrame(updateCounter);
+    contadores.forEach(contador => {
+        const objetivo = parseInt(contador.getAttribute('data-target'));
+        const duracion = 2000;
+        const paso = objetivo / (duracion / 16);
+        let actual = 0;
+
+        const actualizarContador = () => {
+            actual += paso;
+            if (actual < objetivo) {
+                contador.textContent = Math.floor(actual);
+                requestAnimationFrame(actualizarContador);
             } else {
-                counter.textContent = target;
+                contador.textContent = objetivo;
             }
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    updateCounter();
-                    observer.unobserve(entry.target);
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    actualizarContador();
+                    observador.unobserve(entrada.target);
                 }
             });
         }, { threshold: 0.5 });
 
-        observer.observe(counter);
+        observador.observe(contador);
     });
 
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.reveal-title, .reveal-left, .reveal-right, .reveal-up, .gallery-item, [class^="feature-card-"], [class^="reveal-item-"]');
+    const animarAlDesplazar = () => {
+        const elementos = document.querySelectorAll(
+            '.reveal-title, .reveal-left, .reveal-right, .reveal-up, .gallery-item, [class^="feature-card-"], [class^="reveal-item-"]'
+        );
 
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
+        elementos.forEach(elemento => {
+            const posicionElemento = elemento.getBoundingClientRect().top;
+            const altoVentana = window.innerHeight;
 
-            if (elementPosition < windowHeight * 0.85) {
-                if (element.classList.contains('reveal-title')) {
-                    element.classList.add('animate__animated', 'animate__fadeInDown');
-                } else if (element.classList.contains('reveal-left')) {
-                    element.classList.add('animate__animated', 'animate__fadeInLeft');
-                } else if (element.classList.contains('reveal-right')) {
-                    element.classList.add('animate__animated', 'animate__fadeInRight');
-                } else if (element.classList.contains('reveal-up')) {
-                    element.classList.add('animate__animated', 'animate__fadeInUp');
-                } else if (element.classList.contains('gallery-item')) {
-                    element.classList.add('animate__animated', 'animate__zoomIn');
-                } else if (element.className.includes('feature-card-')) {
-                    const delay = element.className.match(/feature-card-(\d+)/)[1] * 0.1;
-                    element.style.animationDelay = `${delay}s`;
-                    element.classList.add('animate__animated', 'animate__fadeInUp');
-                } else if (element.className.includes('reveal-item-')) {
-                    const delay = element.className.match(/reveal-item-(\d+)/)[1] * 0.1;
-                    element.style.animationDelay = `${delay}s`;
-                    element.classList.add('animate__animated', 'animate__fadeInUp');
+            if (posicionElemento < altoVentana * 0.85) {
+                if (elemento.classList.contains('reveal-title')) {
+                    elemento.classList.add('animate__animated', 'animate__fadeInDown');
+                } else if (elemento.classList.contains('reveal-left')) {
+                    elemento.classList.add('animate__animated', 'animate__fadeInLeft');
+                } else if (elemento.classList.contains('reveal-right')) {
+                    elemento.classList.add('animate__animated', 'animate__fadeInRight');
+                } else if (elemento.classList.contains('reveal-up')) {
+                    elemento.classList.add('animate__animated', 'animate__fadeInUp');
+                } else if (elemento.classList.contains('gallery-item')) {
+                    elemento.classList.add('animate__animated', 'animate__zoomIn');
+                } else if (elemento.className.includes('feature-card-')) {
+                    const delay = elemento.className.match(/feature-card-(\d+)/)[1] * 0.1;
+                    elemento.style.animationDelay = `${delay}s`;
+                    elemento.classList.add('animate__animated', 'animate__fadeInUp');
+                } else if (elemento.className.includes('reveal-item-')) {
+                    const delay = elemento.className.match(/reveal-item-(\d+)/)[1] * 0.1;
+                    elemento.style.animationDelay = `${delay}s`;
+                    elemento.classList.add('animate__animated', 'animate__fadeInUp');
                 }
             }
         });
     };
 
-    animateOnScroll();
+    animarAlDesplazar();
+    window.addEventListener('scroll', animarAlDesplazar);
 
-    window.addEventListener('scroll', animateOnScroll);
+    const formularioContacto = document.getElementById('contactForm');
+    const mensajeExito = document.getElementById('formSuccess');
 
-    const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
-
-    contactForm?.addEventListener('submit', function (e) {
+    formularioContacto?.addEventListener('submit', function (e) {
         e.preventDefault();
+
         setTimeout(() => {
-            formSuccess.classList.remove('hidden');
-            contactForm.reset();
+            mensajeExito.classList.remove('hidden');
+            formularioContacto.reset();
 
             setTimeout(() => {
-                formSuccess.classList.add('hidden');
+                mensajeExito.classList.add('hidden');
             }, 5000);
         }, 1000);
     });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById('searchInput');
-    const newsGrid = document.getElementById('newsGrid');
-    const emptyState = document.getElementById('emptyState');
-    const newsCards = newsGrid.querySelectorAll('.animate__fadeIn');
+    const inputBusqueda = document.getElementById('searchInput');
+    const grillaNoticias = document.getElementById('newsGrid');
+    const estadoVacio = document.getElementById('emptyState');
+    const tarjetasNoticias = grillaNoticias.querySelectorAll('.animate__fadeIn');
 
-    searchInput?.addEventListener('input', function (e) {
-        const searchTerm = e.target.value.toLowerCase();
-        let hasResults = false;
+    inputBusqueda?.addEventListener('input', function (e) {
+        const termino = e.target.value.toLowerCase();
+        let hayResultados = false;
 
-        newsCards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            const summary = card.querySelector('p').textContent.toLowerCase();
+        tarjetasNoticias.forEach(tarjeta => {
+            const titulo = tarjeta.querySelector('h3').textContent.toLowerCase();
+            const resumen = tarjeta.querySelector('p').textContent.toLowerCase();
 
-            if (title.includes(searchTerm) || summary.includes(searchTerm)) {
-                card.style.display = 'block';
-                hasResults = true;
+            if (titulo.includes(termino) || resumen.includes(termino)) {
+                tarjeta.style.display = 'block';
+                hayResultados = true;
             } else {
-                card.style.display = 'none';
+                tarjeta.style.display = 'none';
             }
         });
 
-        if (hasResults) {
-            emptyState.classList.add('hidden');
-            newsGrid.classList.remove('hidden');
+        if (hayResultados) {
+            estadoVacio.classList.add('hidden');
+            grillaNoticias.classList.remove('hidden');
         } else {
-            emptyState.classList.remove('hidden');
-            newsGrid.classList.add('hidden');
+            estadoVacio.classList.remove('hidden');
+            grillaNoticias.classList.add('hidden');
         }
     });
 
-    const categoryButtons = document.querySelectorAll('[data-category]');
+    const botonesCategoria = document.querySelectorAll('[data-category]');
 
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            categoryButtons.forEach(btn => {
+    botonesCategoria.forEach(boton => {
+        boton.addEventListener('click', function () {
+
+            botonesCategoria.forEach(btn => {
                 btn.classList.remove('bg-blue-600', 'text-white');
                 btn.classList.add('bg-gray-100', 'text-gray-700');
             });
@@ -129,36 +133,36 @@ document.addEventListener("DOMContentLoaded", function () {
             this.classList.remove('bg-gray-100', 'text-gray-700');
             this.classList.add('bg-blue-600', 'text-white');
 
-            const category = this.getAttribute('data-category');
+            const categoria = this.getAttribute('data-category');
 
-
-            if (category === 'Todas') {
-                newsCards.forEach(card => {
-                    card.style.display = 'block';
+            if (categoria === 'Todas') {
+                tarjetasNoticias.forEach(tarjeta => {
+                    tarjeta.style.display = 'block';
                 });
-                emptyState.classList.add('hidden');
-                newsGrid.classList.remove('hidden');
+                estadoVacio.classList.add('hidden');
+                grillaNoticias.classList.remove('hidden');
                 return;
             }
 
-            let hasResults = false;
-            newsCards.forEach((card, index) => {
-                const shouldShow = Math.random() > 0.5;
+            let hayResultados = false;
 
-                if (shouldShow) {
-                    card.style.display = 'block';
-                    hasResults = true;
+            tarjetasNoticias.forEach(tarjeta => {
+                const mostrar = Math.random() > 0.5;
+
+                if (mostrar) {
+                    tarjeta.style.display = 'block';
+                    hayResultados = true;
                 } else {
-                    card.style.display = 'none';
+                    tarjeta.style.display = 'none';
                 }
             });
 
-            if (hasResults) {
-                emptyState.classList.add('hidden');
-                newsGrid.classList.remove('hidden');
+            if (hayResultados) {
+                estadoVacio.classList.add('hidden');
+                grillaNoticias.classList.remove('hidden');
             } else {
-                emptyState.classList.remove('hidden');
-                newsGrid.classList.add('hidden');
+                estadoVacio.classList.remove('hidden');
+                grillaNoticias.classList.add('hidden');
             }
         });
     });
