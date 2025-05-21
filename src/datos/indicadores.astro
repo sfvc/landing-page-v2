@@ -1,15 +1,15 @@
 ---
 const indicadores = [
-  { valor: 710, texto: "Jóvenes participantes en UDN 2024", delay: 0.1, cita: "turn6search4" },
-  { valor:   5, texto: "Talleres temáticos ofrecidos", delay: 0.2, cita: "turn6search7" },
-  { valor: 120, texto: "Orientaciones vocacionales brindadas", delay: 0.3, cita: "turn6search7" },
-  { valor:   1, texto: "Punto Joven activo", delay: 0.4, cita: "turn6search7" },
+  { valor: 710, texto: "Jóvenes participantes en UDN 2024", delay: 0.1 },
+  { valor:   5, texto: "Talleres temáticos ofrecidos", delay: 0.2 },
+  { valor: 120, texto: "Orientaciones vocacionales brindadas", delay: 0.3 },
+  { valor:   1, texto: "Punto Joven activo", delay: 0.4 },
 ];
 ---
 
 <div class="container mx-auto px-4 pb-8">
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-    {indicadores.map(({ valor, texto, delay, cita }) => (
+    {indicadores.map(({ valor, texto, delay}) => (
       <div
         class="bg-white/20 backdrop-blur-sm p-4 rounded-lg animate__animated animate__fadeInUp"
         style={`animation-delay: ${delay}s`}
