@@ -8,9 +8,6 @@ import Footer from "../components/footer.astro";
 const datos = await catamarcaApi.get("items/Punto_Joven");
 const datosCompletos = datos.data.data[0];
 
-const redes = await catamarcaApi.get("items/Punto_Joven_Redes");
-const redesSociales = redes.data.data;
-
 const noticias = await catamarcaApi.get("items/Punto_Joven_Noticias");
 const noticiasCompletas = noticias.data.data;
 
