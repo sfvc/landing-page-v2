@@ -5,11 +5,18 @@ import { formatearFecha } from "../../util/formatearFecha.astro";
 import NoticiasCard from "../../components/noticiasCard.astro";
 import Footer from "../../components/footer.astro";
 
+type Noticia = {
+  id: string | number;
+  titulo: string;
+  fecha: string;
+  resumen: string;
+  imagen: string;
+};
+
 const datosCompletos = await getDatos();
+const noticiasCompletas: Noticia[] = await getDatosNoticias();
 
-const { noticia } = Astro.props;
-
-const noticiasCompletas = await getDatosNoticias();
+const { noticia }: { noticia: Noticia } = Astro.props;
 const imagenUrl = `https://apis.v1.cc.gob.ar/directus/assets/${noticia.imagen}`;
 
 const relatedNews = noticiasCompletas
