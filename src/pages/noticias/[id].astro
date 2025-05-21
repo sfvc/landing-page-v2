@@ -1,17 +1,15 @@
 ---
 import "../../styles/global.css";
-import { catamarcaApi } from "../../api/catamarcaApi";
+import { getDatos, getDatosNoticias } from "../../util/obtenerDatos.astro";
 import { formatearFecha } from "../../util/formatearFecha.astro";
 import NoticiasCard from "../../components/noticiasCard.astro";
 import Footer from "../../components/footer.astro";
 
-const response = await catamarcaApi.get("items/Punto_Joven");
-const datosCompletos = response.data.data[0];
+const datosCompletos = await getDatos();
 
 const { noticia } = Astro.props;
 
-const noticiasAll = await catamarcaApi.get("items/Punto_Joven_Noticias");
-const noticiasCompletas = noticiasAll.data.data;
+const noticiasCompletas = await getDatosNoticias();
 const imagenUrl = `https://apis.v1.cc.gob.ar/directus/assets/${noticia.imagen}`;
 
 const relatedNews = noticiasCompletas
@@ -19,8 +17,7 @@ const relatedNews = noticiasCompletas
   .slice(0, 3);
 
 export async function getStaticPaths() {
-  const noticiasResponse = await catamarcaApi.get("items/Punto_Joven_Noticias");
-  const noticias = noticiasResponse.data.data;
+  const noticias = await getDatosNoticias();
 
   return noticias.map((noticia: any) => ({
     params: { id: noticia.id.toString() },

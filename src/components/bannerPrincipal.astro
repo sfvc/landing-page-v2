@@ -1,9 +1,8 @@
 ---
 import Indicadores from "../datos/indicadores.astro";
-import { catamarcaApi } from "../api/catamarcaApi";
+import { getDatos } from "../util/obtenerDatos.astro";
 
-const response = await catamarcaApi.get('items/Punto_Joven');
-const datosCompletos = response.data.data[0];
+const datosCompletos = await getDatos();
 ---
 
 <section

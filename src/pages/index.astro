@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { catamarcaApi } from "../api/catamarcaApi";
+import { getDatos } from "../util/obtenerDatos.astro";
 import SobreNosotros from "../components/sobreNosotros.astro";
 import Navbar from "../components/navbar.astro";
 import BannerPrincipal from "../components/bannerPrincipal.astro";
@@ -10,8 +10,7 @@ import Contacto from "../components/contacto.astro";
 import Mapa from "../components/mapa.astro";
 import Footer from "../components/footer.astro";
 
-const response = await catamarcaApi.get("items/Punto_Joven");
-const datosCompletos = response.data.data[0];
+const datosCompletos = await getDatos();
 ---
 
 <html lang="es">

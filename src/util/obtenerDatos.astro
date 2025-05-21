@@ -1,0 +1,23 @@
+---
+import { catamarcaApi } from "../api/catamarcaApi";
+
+export async function getDatos() {
+  const response = await catamarcaApi.get("items/Punto_Joven");
+  return response.data.data[0];
+}
+
+export async function getDatosNoticias() {
+  const response = await catamarcaApi.get("items/Punto_Joven_Noticias");
+  return response.data.data;
+}
+
+export async function getDatosCategorias() {
+  const response = await catamarcaApi.get("items/Punto_Joven_Categoria");
+  return response.data.data;
+}
+
+export async function getDatosRedesSociales() {
+  const response = await catamarcaApi.get("items/Punto_Joven_Redes");
+  return response.data.data;
+}
+---

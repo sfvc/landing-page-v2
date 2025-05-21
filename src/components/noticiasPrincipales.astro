@@ -1,9 +1,8 @@
 ---
 import NoticiasCard from "../components/noticiasCard.astro";
-import { catamarcaApi } from "../api/catamarcaApi";
+import { getDatosNoticias } from "../util/obtenerDatos.astro";
 
-const noticias = await catamarcaApi.get('items/Punto_Joven_Noticias');
-const noticiasCompletas = noticias.data.data;
+const noticiasCompletas = await getDatosNoticias();
 ---
 
 <section id="noticias" class="py-16 bg-gray-50">

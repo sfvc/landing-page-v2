@@ -1,11 +1,8 @@
 ---
-import { catamarcaApi } from "../api/catamarcaApi";
+import { getDatos, getDatosRedesSociales } from "../util/obtenerDatos.astro";
 
-const response = await catamarcaApi.get('items/Punto_Joven');
-const datosCompletos = response.data.data[0];
-
-const redes = await catamarcaApi.get("items/Punto_Joven_Redes");
-const redesSociales = redes.data.data;
+const datosCompletos = await getDatos();
+const redesSociales = await getDatosRedesSociales();
 ---
 
 <section id="sobre-nosotros" class="py-16 bg-white">
