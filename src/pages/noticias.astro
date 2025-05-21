@@ -1,14 +1,43 @@
 ---
 import "../styles/global.css";
-import { datosCompletos } from "../datos/datosCompletos.astro";
+import { catamarcaApi } from "../api/catamarcaApi";
 import NoticiasCard from "../components/noticiasCard.astro";
-import { noticiasCompletas } from "../datos/noticiasCompletas.astro";
 import Navbar from "../components/navbar.astro";
 
-const categorias = [
-  "Todas",
-  ...new Set(noticiasCompletas.map((n) => n.categoria)),
-];
+const datos = await catamarcaApi.get("items/Punto_Joven");
+const datosCompletos = datos.data.data[0];
+
+const noticias = await catamarcaApi.get("items/Punto_Joven_Noticias");
+const noticiasCompletas = noticias.data.data;
+
+const categoriasRes = await catamarcaApi.get("items/Punto_Joven_Categoria");
+const categorias = categoriasRes.data.data;
+
+const categoriasMap = categorias.reduce(
+  (acc: any, cat: any) => {
+    acc[cat.id] = cat.nombre;
+    return acc;
+  },
+  {} as Record<number, string>,
+);
+
+const noticiasConCategorias = noticiasCompletas.map((item: any) => {
+  const catIds = Array.isArray(item.categoria)
+    ? item.categoria
+    : [item.categoria];
+
+  return {
+    ...item,
+    categoriasNombres: catIds.map(
+      (id: number) => categoriasMap[id] ?? "Sin categoría",
+    ),
+  };
+});
+
+const categoriasUnicas = Array.from(
+  new Set(noticiasConCategorias.flatMap((n: any) => n.categoriasNombres)),
+);
+const filtrosCategorias = ["Todas", ...categoriasUnicas];
 ---
 
 <html lang="es">
@@ -53,7 +82,7 @@ const categorias = [
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap justify-center gap-4">
           {
-            categorias.map((category, index) => (
+            filtrosCategorias.map((category: unknown, index: number) => (
               <button
                 class={`cursor-pointer px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 ${index === 0 ? "bg-gray-100 text-black colorPrincipalFondoHover hover:text-white" : "bg-gray-100 text-black colorPrincipalFondoHover hover:text-white"}`}
                 data-category={category}
@@ -93,11 +122,11 @@ const categorias = [
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {
-            noticiasCompletas.map((item, index) => (
+            noticiasConCategorias.map((item: any, idx: number) => (
               <div
                 class="noticia-item animate__animated animate__fadeIn"
-                data-index={index}
-                data-categoria={item.categoria}
+                data-index={idx}
+                data-categoria={item.categoriasNombres.join(",")}
                 style="display: none;"
               >
                 <NoticiasCard noticias={item} />

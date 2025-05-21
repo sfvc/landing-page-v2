@@ -1,22 +1,31 @@
 ---
 import "../../styles/global.css";
-import { datosCompletos } from "../../datos/datosCompletos.astro";
-import { noticias } from "../../datos/noticias.astro";
+import { catamarcaApi } from "../../api/catamarcaApi";
 import NoticiasCard from "../../components/noticiasCard.astro";
 import Footer from "../../components/footer.astro";
 
-export function getStaticPaths() {
-  return noticias.map((noticia) => ({
+const response = await catamarcaApi.get("items/Punto_Joven");
+const datosCompletos = response.data.data[0];
+
+const { noticia } = Astro.props;
+
+const noticiasAll = await catamarcaApi.get("items/Punto_Joven_Noticias");
+const noticiasCompletas = noticiasAll.data.data;
+const imagenUrl = `https://apis.v1.cc.gob.ar/directus/assets/${noticia.imagen}`;
+
+const relatedNews = noticiasCompletas
+  .filter((item: any) => item.id !== noticia.id)
+  .slice(0, 3);
+
+export async function getStaticPaths() {
+  const noticiasResponse = await catamarcaApi.get("items/Punto_Joven_Noticias");
+  const noticias = noticiasResponse.data.data;
+
+  return noticias.map((noticia: any) => ({
     params: { id: noticia.id.toString() },
     props: { noticia },
   }));
 }
-
-const { noticia } = Astro.props;
-
-const relatedNews = noticias
-  .filter((item) => item.id !== noticia.id)
-  .slice(0, 3);
 
 const fullContent = `
 <p class="mb-4">
@@ -70,7 +79,7 @@ const fullContent = `
       >
         <div class="flex items-center space-x-2">
           <a href="/">
-            <img src="../logo_CATACAPI_oscuro.png" alt="Logo" class="h-10" />
+            <img src="/logo_CATACAPI_oscuro.png" alt="Logo" class="h-10" />
           </a>
         </div>
         <nav class="hidden md:flex space-x-6">
@@ -108,8 +117,9 @@ const fullContent = `
       <div id="mobile-menu" class="hidden md:hidden bg-white w-full">
         <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
           <a href="/" class="colorPrincipalTextoHover font-medium">Inicio</a>
-          <a href="/#sobre-nosotros" class="colorPrincipalTextoHover font-medium"
-            >Sobre Nosotros</a
+          <a
+            href="/#sobre-nosotros"
+            class="colorPrincipalTextoHover font-medium">Sobre Nosotros</a
           >
           <a href="/noticias" class="colorPrincipalTexto font-medium"
             >Noticias</a
@@ -166,7 +176,7 @@ const fullContent = `
             style="animation-delay: 0.2s"
           >
             <img
-              src={noticia.imagen || "/placeholder.svg"}
+              src={imagenUrl}
               alt={noticia.titulo}
               class="w-full h-auto rounded-lg shadow-md"
             />
@@ -212,7 +222,7 @@ const fullContent = `
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {
-              relatedNews.map((item, index) => (
+              relatedNews.map((item: any, index: any) => (
                 <div
                   class="animate__animated animate__fadeIn"
                   style={`animation-delay: ${index * 0.1}s`}

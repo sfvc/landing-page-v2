@@ -1,5 +1,8 @@
 ---
-import { datosCompletos } from "../datos/datosCompletos.astro";
+import { catamarcaApi } from "../api/catamarcaApi";
+
+const response = await catamarcaApi.get('items/Punto_Joven');
+const datosCompletos = response.data.data[0];
 ---
 
 <section id="sobre-nosotros" class="py-16 bg-white">

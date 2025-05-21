@@ -93,9 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputBusqueda = document.getElementById('searchInput');
     const grillaNoticias = document.getElementById('newsGrid');
     const estadoVacio = document.getElementById('emptyState');
+    const paginador = document.getElementById('pagination');
+
+    if (!grillaNoticias) return;
+
     const tarjetasNoticias = Array.from(grillaNoticias.querySelectorAll('.animate__fadeIn'));
     const botonesCategoria = document.querySelectorAll('[data-category]');
-    const paginador = document.getElementById('pagination');
     const noticiasPorPagina = 3;
 
     let noticiasFiltradas = [...tarjetasNoticias];
