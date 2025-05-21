@@ -3,6 +3,9 @@ import { catamarcaApi } from "../api/catamarcaApi";
 
 const response = await catamarcaApi.get('items/Punto_Joven');
 const datosCompletos = response.data.data[0];
+
+const redes = await catamarcaApi.get("items/Punto_Joven_Redes");
+const redesSociales = redes.data.data;
 ---
 
 <section id="sobre-nosotros" class="py-16 bg-white">
@@ -32,9 +35,9 @@ const datosCompletos = response.data.data[0];
           Funciona en Av. Máximo Victoria 143, de lunes a viernes de 8:00 a 13:00 y de 15:00 a 20:00,
           según la programación de cada taller.
           Seguinos en
-          <a href={datosCompletos.redesSociales.facebook} target="_blank" class="text-colorPrincipal underline">Facebook</a>
+          <a href={redesSociales[0].url} target="_blank" class="text-colorPrincipal underline">Facebook</a>
           e
-          <a href={datosCompletos.redesSociales.instagram} target="_blank" class="text-colorPrincipal underline">Instagram</a>.
+          <a href={redesSociales[1].url} target="_blank" class="text-colorPrincipal underline">Instagram</a>.
         </p>
       </div>
     </div>

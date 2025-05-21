@@ -1,11 +1,11 @@
 ---
-// Importa tu instancia de axios
 import Indicadores from "../datos/indicadores.astro";
 import { catamarcaApi } from "../api/catamarcaApi";
 
 const response = await catamarcaApi.get('items/Punto_Joven');
 const datosCompletos = response.data.data[0];
 ---
+
 <section
     id="inicio"
     class="bg-gradient-to-r colorPrincipalFondo text-white overflow-hidden"

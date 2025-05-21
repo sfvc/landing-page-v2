@@ -3,6 +3,9 @@ import { catamarcaApi } from "../api/catamarcaApi";
 
 const response = await catamarcaApi.get('items/Punto_Joven');
 const datosCompletos = response.data.data[0];
+
+const redes = await catamarcaApi.get("items/Punto_Joven_Redes");
+const redesSociales = redes.data.data;
 ---
 
 <section id="contacto" class="py-16 bg-gray-50">
@@ -65,14 +68,14 @@ const datosCompletos = response.data.data[0];
                         <div class="flex space-x-4">
                             <a
                                 target="_blank"
-                                href={datosCompletos.redesSociales.facebook}
+                                href={redesSociales[0].url}
                                 class="text-blue-600 hover:text-blue-800 text-2xl transition-transform duration-300 hover:scale-125"
                             >
                                 <i class="fab fa-facebook"></i>
                             </a>
                             <a
                                 target="_blank"
-                                href={datosCompletos.redesSociales.instagram}
+                                href={redesSociales[1].url}
                                 class="text-red-600 hover:text-red-800 text-2xl transition-transform duration-300 hover:scale-125"
                             >
                                 <i class="fab fa-instagram"></i>

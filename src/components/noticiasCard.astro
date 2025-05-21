@@ -1,4 +1,6 @@
 ---
+import { formatearFecha } from '../util/formatearFecha.astro';
+
 interface Props {
   noticias: {
     id: number;
@@ -12,20 +14,6 @@ interface Props {
 const { noticias } = Astro.props;
 
 const imagenUrl = `https://apis.v1.cc.gob.ar/directus/assets/${noticias.imagen}`;
-
-function formatearFecha(fechaStr: string): string {
-  const meses = [
-    "enero", "febrero", "marzo", "abril", "mayo", "junio",
-    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
-  ];
-
-  const fecha = new Date(fechaStr);
-  const dia = fecha.getDate().toString().padStart(2, '0');
-  const mes = meses[fecha.getMonth()];
-  const año = fecha.getFullYear();
-
-  return `${dia} de ${mes}, ${año}`;
-}
 
 ---
 
@@ -43,7 +31,7 @@ function formatearFecha(fechaStr: string): string {
     <span class="colorPrincipalTexto text-sm font-medium">{formatearFecha(noticias.fecha)}</span
     >
     <h3 class="text-xl font-bold mt-2 mb-3">{noticias.titulo}</h3>
-    <p class="text-gray-600 mb-4 line-clamp-2">
+    <p class="text-gray-600 mb-4 line-clamp-3">
       {noticias.resumen}
     </p>
     <a

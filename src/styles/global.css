@@ -19,6 +19,10 @@ html {
     border-radius: 6px;
 }
 
+textarea {
+  field-sizing: content;
+}
+
 .colorPrincipalFondo {
     background-color: #3E5A7E;
 }

@@ -1,0 +1,15 @@
+---
+export function formatearFecha(fechaStr: string): string {
+  const meses = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+  ];
+
+  const fecha = new Date(fechaStr);
+  const dia = fecha.getDate().toString().padStart(2, '0');
+  const mes = meses[fecha.getMonth()];
+  const año = fecha.getFullYear();
+
+  return `${dia} de ${mes}, ${año}`;
+}
+---

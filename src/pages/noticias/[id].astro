@@ -1,6 +1,7 @@
 ---
 import "../../styles/global.css";
 import { catamarcaApi } from "../../api/catamarcaApi";
+import { formatearFecha } from "../../util/formatearFecha.astro";
 import NoticiasCard from "../../components/noticiasCard.astro";
 import Footer from "../../components/footer.astro";
 
@@ -161,7 +162,7 @@ const fullContent = `
             <div class="flex items-center text-gray-500 mb-6">
               <span class="flex items-center">
                 <i class="far fa-calendar mr-2"></i>
-                {noticia.fecha}
+                {formatearFecha(noticia.fecha)}
               </span>
               <span class="mx-3">•</span>
               <span class="flex items-center">
