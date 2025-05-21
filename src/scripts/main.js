@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 1; i <= totalPaginas; i++) {
             const btn = document.createElement('button');
             btn.textContent = i;
-            btn.className = `px-4 py-2 rounded-md border ${i === paginaActual ? 'bg-blue-600 text-white cursor-pointer' : 'bg-white text-blue-600 hover:bg-blue-100 cursor-pointer'
+            btn.className = `px-4 py-2 rounded-md border ${i === paginaActual ? 'colorPrincipalFondo text-white cursor-pointer' : 'bg-white colorPrincipalTexto colorPrincipalTextoHover cursor-pointer'
                 }`;
             btn.addEventListener('click', () => mostrarPagina(i));
             paginador.appendChild(btn);

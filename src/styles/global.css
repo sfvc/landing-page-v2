@@ -23,12 +23,16 @@ html {
     background-color: #3E5A7E;
 }
 
+.colorPrincipalFondoHover:hover {
+    background-color: #97aecb;
+}
+
 .colorPrincipalTexto {
     color: #4b6d9a;
 }
 
-.colorPrincipalHover:hover {
-    color: #577eb1;
+.colorPrincipalTextoHover:hover {
+    color: #b0caec;
 }
 
 .colorPrincipalBorde {
