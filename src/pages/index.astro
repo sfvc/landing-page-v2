@@ -5,10 +5,12 @@ import SobreNosotros from "../components/sobreNosotros.astro";
 import Navbar from "../components/navbar.astro";
 import BannerPrincipal from "../components/bannerPrincipal.astro";
 import NoticiasPrincipales from "../components/noticiasPrincipales.astro";
-import Instalaciones from "../components/instalaciones.astro";
+import Novedades from "../components/novedades.astro";
 import Contacto from "../components/contacto.astro";
 import Mapa from "../components/mapa.astro";
 import Footer from "../components/footer.astro";
+import RedesSociales from "../components/redesSociales.astro";
+import GaleriaImagenes from "../components/galeriaImagenes.astro";
 
 const datosCompletos = await getDatos();
 ---
@@ -32,6 +34,10 @@ const datosCompletos = await getDatos();
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <script src="../scripts/main.js"></script>
   </head>
 
@@ -45,11 +51,17 @@ const datosCompletos = await getDatos();
     <!-- Informacion sobre el organismo -->
     <SobreNosotros />
 
+    <!-- Redes Sociales del organismo -->
+    <RedesSociales />
+
+    <!-- Informacion sobre las novedades -->
+    <Novedades />
+
+    <!-- Galeria de imagenes del organismo -->
+    <GaleriaImagenes />
+
     <!-- Encabezado de noticias -->
     <NoticiasPrincipales />
-
-    <!-- Informacion sobre las instalaciones -->
-    <Instalaciones />
 
     <!-- Formulario de contacto -->
     <Contacto />

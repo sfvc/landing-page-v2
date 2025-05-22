@@ -91,28 +91,33 @@ const fullContent = `
           <a
             href="/"
             class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
-            >Inicio</a
-          >
+            >Inicio
+          </a>
           <a
             href="/#sobre-nosotros"
             class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
-            >Sobre Nosotros</a
-          >
+            >Sobre Nosotros
+          </a>
+          <a
+            href="/#redes-sociales"
+            class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
+            >Redes Sociales
+          </a>
+          <a
+            href="/#novedades"
+            class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
+            >Novedades
+          </a>
           <a
             href="/noticias"
             class="colorPrincipalTexto font-medium transition-all duration-300 hover:scale-105"
-            >Noticias</a
-          >
-          <a
-            href="/#instalaciones"
-            class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
-            >Instalaciones</a
-          >
+            >Noticias
+          </a>
           <a
             href="/#contacto"
             class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
-            >Contacto</a
-          >
+            >Contacto
+          </a>
         </nav>
         <button class="md:hidden colorPrincipalTexto" id="menu-toggle">
           <i class="fas fa-bars text-2xl"></i>
@@ -121,20 +126,28 @@ const fullContent = `
 
       <div id="mobile-menu" class="hidden md:hidden bg-white w-full">
         <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-          <a href="/" class="colorPrincipalTextoHover font-medium">Inicio</a>
+          <a href="/" class="colorPrincipalTextoHover font-medium"> Inicio </a>
           <a
             href="/#sobre-nosotros"
-            class="colorPrincipalTextoHover font-medium">Sobre Nosotros</a
+            class="colorPrincipalTextoHover font-medium"
           >
-          <a href="/noticias" class="colorPrincipalTexto font-medium"
-            >Noticias</a
+            Sobre Nosotros
+          </a>
+          <a
+            href="/#redes-sociales"
+            class="colorPrincipalTextoHover font-medium"
           >
-          <a href="/#instalaciones" class="colorPrincipalTextoHover font-medium"
-            >Instalaciones</a
-          >
-          <a href="/#contacto" class="colorPrincipalTextoHover font-medium"
-            >Contacto</a
-          >
+            Redes Sociales
+          </a>
+          <a href="/#novedades" class="colorPrincipalTextoHover font-medium">
+            Novedades
+          </a>
+          <a href="/noticias" class="colorPrincipalTexto font-medium">
+            Noticias
+          </a>
+          <a href="/#contacto" class="colorPrincipalTextoHover font-medium">
+            Contacto
+          </a>
         </div>
       </div>
     </header>
@@ -153,27 +166,27 @@ const fullContent = `
 
     <article>
       <div class="container mx-auto px-4 py-12">
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-8 animate__animated animate__fadeIn">
-            <span
-              class="inline-block bg-blue-100 colorPrincipalTexto text-sm font-medium px-3 py-1 rounded-full mb-4"
-            >
-              Noticia
+        <div class="max-w-4xl mx-auto animate__animated animate__fadeIn">
+          <span
+            class="inline-block bg-blue-100 colorPrincipalTexto text-sm font-medium px-3 py-1 rounded-full mb-4"
+          >
+            Noticia
+          </span>
+
+          <h1 class="text-3xl md:text-4xl font-bold mb-4">
+            {noticia.titulo}
+          </h1>
+
+          <div class="flex items-center text-gray-500 mb-6">
+            <span class="flex items-center">
+              <i class="far fa-calendar mr-2"></i>
+              {formatearFecha(noticia.fecha)}
             </span>
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">
-              {noticia.titulo}
-            </h1>
-            <div class="flex items-center text-gray-500 mb-6">
-              <span class="flex items-center">
-                <i class="far fa-calendar mr-2"></i>
-                {formatearFecha(noticia.fecha)}
-              </span>
-              <span class="mx-3">•</span>
-              <span class="flex items-center">
-                <i class="far fa-clock mr-2"></i>
-                5 min de lectura
-              </span>
-            </div>
+            <span class="mx-3">•</span>
+            <span class="flex items-center">
+              <i class="far fa-clock mr-2"></i>
+              5 min de lectura
+            </span>
           </div>
 
           <div

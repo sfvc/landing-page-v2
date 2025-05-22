@@ -1,47 +1,51 @@
 ---
-import Indicadores from "../datos/indicadores.astro";
-import { getDatos } from "../util/obtenerDatos.astro";
+import { getDatos, getDatosImagenes } from "../util/obtenerDatos.astro";
 
 const datosCompletos = await getDatos();
+const imagenes = await getDatosImagenes();
+
+const DIRECTUS_URL = "https://apis.v1.cc.gob.ar/directus";
 ---
 
 <section
-    id="inicio"
-    class="bg-gradient-to-r colorPrincipalFondo text-white overflow-hidden"
+  id="inicio"
+  class="bg-gradient-to-r colorPrincipalFondo text-white overflow-hidden"
 >
+  <div
+    class="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center"
+  >
     <div
-        class="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center"
+      class="md:w-1/2 mb-8 md:mb-0 animate__animated animate__fadeInLeft"
     >
-        <div
-            class="md:w-1/2 mb-8 md:mb-0 animate__animated animate__fadeInLeft"
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        {datosCompletos.nombre}
+      </h1>
+      <p
+        class="text-xl mb-6 text-justify leading-relaxed tracking-normal hyphens-auto max-w-prose"
+      >
+        {datosCompletos.descripcion}
+      </p>
+      <div class="flex space-x-4">
+        <a
+          href="#contacto"
+          class="bg-white colorPrincipalTexto hover:bg-gray-100 px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
         >
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                {datosCompletos.nombre}
-            </h1>
-            <p class="text-xl mb-6">{datosCompletos.descripcion}</p>
-            <div class="flex space-x-4">
-                <a
-                    href="#contacto"
-                    class="bg-white colorPrincipalTexto hover:bg-gray-100 px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                >
-                    Contáctanos
-                </a>
-                <a
-                    href="#noticias"
-                    class="bg-transparent border-2 border-white hover:bg-white colorPrincipalFondoHover px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
-                >
-                    Últimas Noticias
-                </a>
-            </div>
-        </div>
-        <div class="md:w-1/2 animate__animated animate__fadeInRight">
-            <img
-                src="https://scontent.fctc1-1.fna.fbcdn.net/v/t39.30808-6/470575327_18050277728025990_3372733736556745935_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=s5ML6iImeIgQ7kNvwF4cJxE&_nc_oc=AdlLxrXJqhhGpjnseurkWJQj_GrAQQc8TNiqShTWm37P6ONpCwUG7gJn7TBpRANlyhA&_nc_zt=23&_nc_ht=scontent.fctc1-1.fna&_nc_gid=qVng2RBldU_9vuxSG73RTQ&oh=00_AfLo50uh-J7REKVIE0YPUUaVWcjECqWS5P2Lseeh4L8hIQ&oe=6832BFF9"
-                alt="Imagen principal"
-                class="h-96 rounded-lg w-full transform transition-transform duration-500 hover:scale-105"
-            />
-        </div>
+          Contáctanos
+        </a>
+        <a
+          href="#noticias"
+          class="bg-transparent border-2 border-white hover:bg-white colorPrincipalFondoHover px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+        >
+          Últimas Noticias
+        </a>
+      </div>
     </div>
-
-    <Indicadores />
+    <div class="md:w-1/2 animate__animated animate__fadeInRight">
+      <img
+        src={`${DIRECTUS_URL}/assets/${imagenes[0].presentacion}`}
+        alt="Imagen principal"
+        class="h-96 rounded-lg w-full transform transition-transform duration-500 hover:scale-105"
+      />
+    </div>
+  </div>
 </section>

@@ -1,0 +1,127 @@
+---
+import "../../styles/global.css";
+import { getDatos, getDatosNovedades } from "../../util/obtenerDatos.astro";
+import Footer from "../../components/footer.astro";
+import Navbar from "../../components/navbar.astro";
+
+type Novedad = {
+    id: string | number;
+    titulo: string;
+    descripcion: string;
+    icono: string;
+    contenido: string;
+    fecha: string;
+    imagen: string;
+};
+
+const datosCompletos = await getDatos();
+const { novedad }: { novedad: Novedad } = Astro.props;
+const imagenUrl = `https://apis.v1.cc.gob.ar/directus/assets/${novedad.imagen}`;
+
+export async function getStaticPaths() {
+    const novedades = await getDatosNovedades();
+    return novedades.map((novedad: any) => ({
+        params: { id: novedad.id.toString() },
+        props: { novedad },
+    }));
+}
+---
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{novedad.titulo} - {datosCompletos.nombre}</title>
+        <link rel="icon" type="image/png" href="/favicon_CATACAPI.png" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <script src="../../scripts/main.js"></script>
+    </head>
+
+    <body class="bg-gray-50 text-gray-800 font-sans">
+        <Navbar />
+
+        <div class="bg-gray-100 py-3 border-b">
+            <div class="container mx-auto px-4 text-sm text-gray-600">
+                <a href="/" class="colorPrincipalTextoHover">Inicio</a>
+                <span class="mx-2">/</span>
+                <a href="/#novedades" class="colorPrincipalTextoHover"
+                    >Novedades</a
+                >
+                <span class="mx-2">/</span>
+                <span class="text-gray-800">{novedad.titulo}</span>
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <main class="container mx-auto px-4 py-12">
+            <div class="max-w-4xl mx-auto animate__animated animate__fadeIn">
+                <span
+                    class="inline-block bg-green-100 colorPrincipalTexto text-sm font-medium px-3 py-1 rounded-full mb-4"
+                    >Novedad
+                </span>
+
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                    {novedad.titulo}
+                </h1>
+
+                <div class="flex items-center text-gray-500 mb-6">
+                    <span class="flex items-center">
+                        <i class="far fa-clock mr-2"></i>
+                        5 min de lectura
+                    </span>
+                </div>
+
+                <div
+                    class="mb-8 animate__animated animate__fadeIn"
+                    style="animation-delay: 0.2s"
+                >
+                    <img
+                        src={imagenUrl}
+                        alt={novedad.titulo}
+                        class="w-full h-auto rounded-lg shadow-md"
+                    />
+                </div>
+
+                <div
+                    class="mb-8 animate__animated animate__fadeIn"
+                    style="animation-delay: 0.3s"
+                >
+                    <p
+                        class="text-xl font-medium text-gray-700 border-l-4 colorPrincipalBorde pl-4 py-2"
+                    >
+                        {novedad.descripcion}
+                    </p>
+                </div>
+
+                <div
+                    class="prose prose-lg max-w-none animate__animated animate__fadeIn"
+                    style="animation-delay: 0.4s"
+                >
+                    <Fragment set:html={novedad.contenido} />
+                </div>
+
+                <div class="mt-12 pt-6 border-t border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <div></div>
+                        <a
+                            href="/#novedades"
+                            class="inline-flex items-center colorPrincipalTexto colorPrincipalTextoHover"
+                        >
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            Volver a novedades
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <Footer />
+    </body>
+</html>

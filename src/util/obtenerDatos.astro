@@ -6,6 +6,21 @@ export async function getDatos() {
   return response.data.data[0];
 }
 
+export async function getDatosRedesSociales() {
+  const response = await catamarcaApi.get("items/Punto_Joven_Redes");
+  return response.data.data;
+}
+
+export async function getDatosNovedades() {
+  const response = await catamarcaApi.get("items/Punto_Joven_Novedades");
+  return response.data.data;
+}
+
+export async function getDatosImagenes() {
+  const response = await catamarcaApi.get("items/Punto_Joven_Imagenes");
+  return response.data.data;
+}
+
 export async function getDatosNoticias() {
   const response = await catamarcaApi.get("items/Punto_Joven_Noticias");
   return response.data.data;
@@ -13,11 +28,6 @@ export async function getDatosNoticias() {
 
 export async function getDatosCategorias() {
   const response = await catamarcaApi.get("items/Punto_Joven_Categoria");
-  return response.data.data;
-}
-
-export async function getDatosRedesSociales() {
-  const response = await catamarcaApi.get("items/Punto_Joven_Redes");
   return response.data.data;
 }
 ---

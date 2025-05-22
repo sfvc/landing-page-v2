@@ -1,0 +1,81 @@
+---
+import { getDatosRedesSociales } from "../util/obtenerDatos.astro";
+
+const redesSociales = await getDatosRedesSociales();
+
+const facebook = redesSociales.find((response: any) => response.nombre.toLowerCase() === "facebook");
+const instagram = redesSociales.find((response: any) => response.nombre.toLowerCase() === "instagram");
+const tiktok = redesSociales.find((response: any) => response.nombre.toLowerCase() === "tiktok");
+
+const tiktokUsername = tiktok?.url.split("/@")[1] ?? "";
+---
+
+<section id="redes-sociales" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 colorPrincipalTexto reveal-title">
+      Redes Sociales
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Facebook -->
+      <div class="bg-white rounded-2xl shadow-lg p-4 min-h-[600px] h-full flex items-center justify-center">
+        <div class="w-full max-w-[500px] mx-auto">
+          {facebook && (
+            <iframe
+              src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(facebook.url)}&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`}
+              width="100%"
+              height="550"
+              style="border:none;overflow:hidden"
+              scrolling="no"
+              frameborder="0"
+              allowfullscreen="true"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            ></iframe>
+          )}
+        </div>
+      </div>
+
+      <!-- Instagram -->
+      <div class="bg-white rounded-2xl shadow-lg p-4 min-h-[600px] h-full flex items-center justify-center">
+        <div class="w-full max-w-[500px] mx-auto">
+          {instagram && (
+            <>
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink={instagram.url}
+                data-instgrm-version="14"
+                style="width: 100%; min-height: 550px; margin: 0 auto;"
+              ></blockquote>
+              <script async src="//www.instagram.com/embed.js"></script>
+            </>
+          )}
+        </div>
+      </div>
+
+      <!-- TikTok -->
+      <div class="bg-white rounded-2xl shadow-lg p-4 min-h-[600px] h-full flex items-center justify-center">
+        <div class="w-full max-w-[500px] mx-auto">
+          {tiktok && (
+            <>
+              <blockquote
+                class="tiktok-embed"
+                cite={tiktok.url}
+                data-unique-id={tiktokUsername}
+                data-embed-type="creator"
+                style="max-width: 100%; min-height: 550px;"
+              >
+                <section>
+                  <a target="_blank" href={tiktok.url}>
+                    @{tiktokUsername}
+                  </a> en TikTok
+                </section>
+              </blockquote>
+              <script async src="https://www.tiktok.com/embed.js"></script>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

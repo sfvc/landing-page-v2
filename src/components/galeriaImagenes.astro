@@ -1,0 +1,44 @@
+---
+import { catamarcaApi } from "../api/catamarcaApi";
+
+async function getDatosImagenes() {
+  const response = await catamarcaApi.get("items/Punto_Joven_Imagenes_files");
+  return response.data.data;
+}
+
+const imagenes = await getDatosImagenes();
+const baseUrl = "https://apis.v1.cc.gob.ar/directus/assets";
+---
+
+<section id="galeria" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4 overflow-x-hidden">
+    <h2
+      class="text-3xl font-bold text-center mb-12 colorPrincipalTexto reveal-title"
+    >
+      Galeria de Imagenes
+    </h2>
+    <div
+      class="flex overflow-x-auto gap-4 pb-4"
+      style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;"
+    >
+      {
+        imagenes.map((img: any) => {
+          const imagenUrl = `${baseUrl}/${img.directus_files_id}`;
+          return (
+            <div
+              class="flex-none w-[300px] h-[200px] rounded-lg overflow-hidden shadow-md"
+              style="scroll-snap-align: center;"
+            >
+              <img
+                src={imagenUrl}
+                alt={`Imagen ${img.id}`}
+                loading="lazy"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
