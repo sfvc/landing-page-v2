@@ -1,6 +1,7 @@
 ---
 import "../../styles/global.css";
 import { getDatos, getDatosNovedades } from "../../util/obtenerDatos.astro";
+import { catamarcaApi } from "../../api/catamarcaApi";
 import Footer from "../../components/footer.astro";
 import Navbar from "../../components/navbar.astro";
 
@@ -16,7 +17,7 @@ type Novedad = {
 
 const datosCompletos = await getDatos();
 const { novedad }: { novedad: Novedad } = Astro.props;
-const imagenUrl = `https://apis.v1.cc.gob.ar/directus/assets/${novedad.imagen}`;
+const imagenUrl = `${catamarcaApi.defaults.baseURL}/assets/${novedad.imagen}`;
 
 export async function getStaticPaths() {
     const novedades = await getDatosNovedades();
@@ -63,19 +64,21 @@ export async function getStaticPaths() {
         <main class="container mx-auto px-4 py-12">
             <div class="max-w-4xl mx-auto animate__animated animate__fadeIn">
                 <span
-                    class="inline-block bg-green-100 colorPrincipalTexto text-sm font-medium px-3 py-1 rounded-full mb-4"
-                    >Novedad
+                    class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-4 py-1 rounded-full mb-4 shadow-sm"
+                >
+                    <i class="fas fa-bolt mr-1"></i> Novedad
                 </span>
 
-                <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                <h1
+                    class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight tracking-tight"
+                >
                     {novedad.titulo}
                 </h1>
 
-                <div class="flex items-center text-gray-500 mb-6">
-                    <span class="flex items-center">
-                        <i class="far fa-clock mr-2"></i>
-                        5 min de lectura
-                    </span>
+                <div class="flex items-center text-sm text-gray-500 mb-6">
+                    <i class="far fa-clock mr-2"></i> 5 min de lectura
+                    <span class="mx-2">•</span>
+                    <span>{novedad.fecha}</span>
                 </div>
 
                 <div
@@ -85,7 +88,7 @@ export async function getStaticPaths() {
                     <img
                         src={imagenUrl}
                         alt={novedad.titulo}
-                        class="w-full aspect-video object-cover rounded-lg shadow-md"
+                        class="w-full aspect-video object-cover rounded-2xl shadow-lg transition duration-300 hover:shadow-xl"
                     />
                 </div>
 
@@ -93,11 +96,11 @@ export async function getStaticPaths() {
                     class="mb-8 animate__animated animate__fadeIn"
                     style="animation-delay: 0.3s"
                 >
-                    <p
-                        class="text-xl font-medium text-gray-700 border-l-4 colorPrincipalBorde pl-4 py-2"
+                    <blockquote
+                        class="text-lg text-gray-700 font-medium border-l-4 border-green-500 pl-4 italic bg-green-50 py-3 rounded-md"
                     >
                         {novedad.descripcion}
-                    </p>
+                    </blockquote>
                 </div>
 
                 <div
@@ -107,15 +110,13 @@ export async function getStaticPaths() {
                     <Fragment set:html={novedad.contenido} />
                 </div>
 
-                <div class="mt-12 pt-6 border-t border-gray-200">
-                    <div class="flex items-center justify-between">
-                        <div></div>
+                <div class="mt-16 pt-8 border-t border-gray-300">
+                    <div class="flex justify-end">
                         <a
                             href="/#novedades"
-                            class="inline-flex items-center colorPrincipalTexto colorPrincipalTextoHover"
+                            class="inline-flex items-center text-sm font-semibold colorPrincipalTexto colorPrincipalTextoHover transition duration-200"
                         >
-                            <i class="fas fa-arrow-left mr-2"></i>
-                            Volver a novedades
+                            <i class="fas fa-arrow-left mr-2"></i> Volver a novedades
                         </a>
                     </div>
                 </div>

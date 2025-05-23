@@ -1,10 +1,9 @@
 ---
 import { getDatos, getDatosImagenes } from "../util/obtenerDatos.astro";
+import { catamarcaApi } from "../api/catamarcaApi";
 
 const datosCompletos = await getDatos();
 const imagenes = await getDatosImagenes();
-
-const DIRECTUS_URL = "https://apis.v1.cc.gob.ar/directus";
 ---
 
 <section
@@ -14,9 +13,7 @@ const DIRECTUS_URL = "https://apis.v1.cc.gob.ar/directus";
   <div
     class="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center"
   >
-    <div
-      class="md:w-1/2 mb-8 md:mb-0 animate__animated animate__fadeInLeft"
-    >
+    <div class="md:w-1/2 mb-8 md:mb-0 animate__animated animate__fadeInLeft">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">
         {datosCompletos.nombre}
       </h1>
@@ -42,7 +39,7 @@ const DIRECTUS_URL = "https://apis.v1.cc.gob.ar/directus";
     </div>
     <div class="md:w-1/2 animate__animated animate__fadeInRight">
       <img
-        src={`${DIRECTUS_URL}/assets/${imagenes[0].presentacion}`}
+        src={`${catamarcaApi.defaults.baseURL}/assets/${imagenes[0].presentacion}`}
         alt="Imagen principal"
         class="h-96 rounded-lg w-full transform transition-transform duration-500 hover:scale-105"
       />

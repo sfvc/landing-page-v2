@@ -1,4 +1,5 @@
 ---
+import { catamarcaApi } from "../api/catamarcaApi";
 import {
   getDatos,
   getDatosImagenes,
@@ -8,8 +9,6 @@ import {
 const datosCompletos = await getDatos();
 const redesSociales = await getDatosRedesSociales();
 const imagenes = await getDatosImagenes();
-
-const DIRECTUS_URL = "https://apis.v1.cc.gob.ar/directus";
 ---
 
 <section id="sobre-nosotros" class="py-16 bg-white">
@@ -22,7 +21,7 @@ const DIRECTUS_URL = "https://apis.v1.cc.gob.ar/directus";
     <div class="flex flex-col md:flex-row items-center">
       <div class="md:w-1/2 mb-8 md:mb-0 reveal-left">
         <img
-          src={`${DIRECTUS_URL}/assets/${imagenes[0].sobre_nosotros}`}
+          src={`${catamarcaApi.defaults.baseURL}/assets/${imagenes[0].sobre_nosotros}`}
           alt={`Sobre ${datosCompletos.nombre}`}
           class="rounded-lg shadow-md w-full transform transition-transform duration-500 hover:scale-105"
         />

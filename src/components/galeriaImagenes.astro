@@ -7,7 +7,6 @@ async function getDatosImagenes() {
 }
 
 const imagenes = await getDatosImagenes();
-const baseUrl = "https://apis.v1.cc.gob.ar/directus/assets";
 ---
 
 <section id="galeria" class="py-16 bg-gray-50">
@@ -23,7 +22,7 @@ const baseUrl = "https://apis.v1.cc.gob.ar/directus/assets";
     >
       {
         imagenes.map((img: any) => {
-          const imagenUrl = `${baseUrl}/${img.directus_files_id}`;
+          const imagenUrl = `${catamarcaApi.defaults.baseURL}/assets/${img.directus_files_id}`;
           return (
             <div
               class="flex-none w-[300px] h-[200px] rounded-lg overflow-hidden shadow-md"

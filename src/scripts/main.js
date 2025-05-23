@@ -55,7 +55,6 @@ async function actualizarColorPrincipal() {
     document.documentElement.style.setProperty('--color-principal-texto', colorTexto);
     document.documentElement.style.setProperty('--color-principal-texto-hover', colorTextoHover);
     document.documentElement.style.setProperty('--color-principal-borde', colorBorde);
-
   } catch (error) {
     console.error('Error al traer color desde Directus:', error);
   }

@@ -2,14 +2,17 @@
 import "../../styles/global.css";
 import { getDatos, getDatosNoticias } from "../../util/obtenerDatos.astro";
 import { formatearFecha } from "../../util/formatearFecha.astro";
+import { catamarcaApi } from "../../api/catamarcaApi";
 import NoticiasCard from "../../components/noticiasCard.astro";
 import Footer from "../../components/footer.astro";
+import Navbar from "../../components/navbar.astro";
 
 type Noticia = {
   id: string | number;
   titulo: string;
   fecha: string;
-  resumen: string;
+  descripcion: string;
+  contenido: string;
   imagen: string;
 };
 
@@ -17,7 +20,7 @@ const datosCompletos = await getDatos();
 const noticiasCompletas: Noticia[] = await getDatosNoticias();
 
 const { noticia }: { noticia: Noticia } = Astro.props;
-const imagenUrl = `https://apis.v1.cc.gob.ar/directus/assets/${noticia.imagen}`;
+const imagenUrl = `${catamarcaApi.defaults.baseURL}/assets/${noticia.imagen}`;
 
 const relatedNews = noticiasCompletas
   .filter((item: any) => item.id !== noticia.id)
@@ -31,33 +34,6 @@ export async function getStaticPaths() {
     props: { noticia },
   }));
 }
-
-const fullContent = `
-<p class="mb-4">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
-</p>
-<p class="mb-4">
-  Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
-</p>
-<h3 class="text-2xl font-bold mt-6 mb-4">Subtítulo importante</h3>
-<p class="mb-4">
-  Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
-</p>
-<ul class="list-disc pl-6 mb-4">
-  <li class="mb-2">Punto importante sobre el evento</li>
-  <li class="mb-2">Información relevante para los participantes</li>
-  <li class="mb-2">Datos adicionales sobre la actividad</li>
-</ul>
-<p class="mb-4">
-  Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
-</p>
-<blockquote class="border-l-4 colorPrincipalBorde pl-4 italic my-6">
-  "Esta iniciativa representa un gran avance para nuestra comunidad y demuestra el compromiso del municipio con el desarrollo tecnológico local."
-</blockquote>
-<p class="mb-4">
-  Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
-</p>
-`;
 ---
 
 <html lang="es">
@@ -78,79 +54,7 @@ const fullContent = `
   </head>
 
   <body class="bg-gray-50 text-gray-800 font-sans">
-    <header class="bg-white shadow-md sticky top-0 z-50">
-      <div
-        class="container mx-auto px-4 py-3 flex justify-between items-center"
-      >
-        <div class="flex items-center space-x-2">
-          <a href="/">
-            <img src="/logo_CATACAPI_oscuro.png" alt="Logo" class="h-10" />
-          </a>
-        </div>
-        <nav class="hidden md:flex space-x-6">
-          <a
-            href="/"
-            class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
-            >Inicio
-          </a>
-          <a
-            href="/#sobre-nosotros"
-            class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
-            >Sobre Nosotros
-          </a>
-          <a
-            href="/#redes-sociales"
-            class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
-            >Redes Sociales
-          </a>
-          <a
-            href="/#novedades"
-            class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
-            >Novedades
-          </a>
-          <a
-            href="/noticias"
-            class="colorPrincipalTexto font-medium transition-all duration-300 hover:scale-105"
-            >Noticias
-          </a>
-          <a
-            href="/#contacto"
-            class="colorPrincipalTextoHover font-medium transition-all duration-300 hover:scale-105"
-            >Contacto
-          </a>
-        </nav>
-        <button class="md:hidden colorPrincipalTexto" id="menu-toggle">
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-      </div>
-
-      <div id="mobile-menu" class="hidden md:hidden bg-white w-full">
-        <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-          <a href="/" class="colorPrincipalTextoHover font-medium"> Inicio </a>
-          <a
-            href="/#sobre-nosotros"
-            class="colorPrincipalTextoHover font-medium"
-          >
-            Sobre Nosotros
-          </a>
-          <a
-            href="/#redes-sociales"
-            class="colorPrincipalTextoHover font-medium"
-          >
-            Redes Sociales
-          </a>
-          <a href="/#novedades" class="colorPrincipalTextoHover font-medium">
-            Novedades
-          </a>
-          <a href="/noticias" class="colorPrincipalTexto font-medium">
-            Noticias
-          </a>
-          <a href="/#contacto" class="colorPrincipalTextoHover font-medium">
-            Contacto
-          </a>
-        </div>
-      </div>
-    </header>
+    <Navbar />
 
     <div class="bg-gray-100 py-3 border-b">
       <div class="container mx-auto px-4">
@@ -168,9 +72,9 @@ const fullContent = `
       <div class="container mx-auto px-4 py-12">
         <div class="max-w-4xl mx-auto animate__animated animate__fadeIn">
           <span
-            class="inline-block bg-blue-100 colorPrincipalTexto text-sm font-medium px-3 py-1 rounded-full mb-4"
+            class="inline-block bg-blue-100 colorPrincipalTexto text-sm font-semibold px-4 py-1 rounded-full mb-4 shadow-sm"
           >
-            Noticia
+            <i class="fas fa-newspaper mr-1"></i> Noticia
           </span>
 
           <h1 class="text-3xl md:text-4xl font-bold mb-4">
@@ -196,7 +100,7 @@ const fullContent = `
             <img
               src={imagenUrl}
               alt={noticia.titulo}
-              class="w-full aspect-video object-cover rounded-lg shadow-md"
+              class="w-full aspect-video object-cover rounded-2xl shadow-lg transition duration-300 hover:shadow-xl"
             />
           </div>
 
@@ -204,19 +108,18 @@ const fullContent = `
             class="mb-8 animate__animated animate__fadeIn"
             style="animation-delay: 0.3s"
           >
-            <p
-              class="text-xl font-medium text-gray-700 border-l-4 colorPrincipalBorde pl-4 py-2"
+            <blockquote
+              class="text-lg text-gray-700 font-medium border-l-4 border-blue-500 pl-4 italic bg-blue-50 py-3 rounded-md"
             >
-              {noticia.resumen}
-            </p>
+              {noticia.descripcion}
+            </blockquote>
           </div>
 
           <div
             class="prose prose-lg max-w-none animate__animated animate__fadeIn"
             style="animation-delay: 0.4s"
-          >
-            <Fragment set:html={fullContent} />
-          </div>
+            set:html={noticia.contenido}
+          />
 
           <div class="mt-12 pt-6 border-t border-gray-200">
             <div class="flex items-center justify-between">
