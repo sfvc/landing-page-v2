@@ -1,44 +1,52 @@
 @import "tailwindcss";
 
+:root {
+  --color-principal-fondo: #3E5A7E;
+  --color-principal-fondo-hover: #97aecb;
+  --color-principal-texto: #4b6d9a;
+  --color-principal-texto-hover: #b0caec;
+  --color-principal-borde: #334a67;
+}
+
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 50px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 50px;
 }
 
 textarea {
-    field-sizing: content;
+  field-sizing: content;
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #3E5A7E;
-    border-radius: 6px;
+  background-color: var(--color-principal-fondo);
+  border-radius: 6px;
 }
 
 .colorPrincipalFondo {
-    background-color: #3E5A7E;
+  background-color: var(--color-principal-fondo);
 }
 
 .colorPrincipalFondoHover:hover {
-    background-color: #97aecb;
+  background-color: var(--color-principal-fondo-hover);
 }
 
 .colorPrincipalTexto {
-    color: #4b6d9a;
+  color: var(--color-principal-texto);
 }
 
 .colorPrincipalTextoHover:hover {
-    color: #b0caec;
+  color: var(--color-principal-texto-hover);
 }
 
 .colorPrincipalBorde {
-    border-color: #334a67;
+  border-color: var(--color-principal-borde);
 }

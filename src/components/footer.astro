@@ -13,7 +13,11 @@ const redesSociales = await getDatosRedesSociales();
                 style="animation-delay: 0.1s"
             >
                 <h3 class="text-xl font-bold mb-4">Acerca de nosotros</h3>
-                <p class="mb-4 text-justify leading-relaxed tracking-normal hyphens-auto max-w-prose">{datosCompletos.descripcion}</p>
+                <p
+                    class="mb-4 text-justify leading-relaxed tracking-normal hyphens-auto max-w-prose"
+                >
+                    {datosCompletos.descripcion}
+                </p>
                 <div class="flex space-x-4">
                     <a
                         target="_blank"
@@ -28,6 +32,13 @@ const redesSociales = await getDatosRedesSociales();
                         class="text-white hover:text-blue-200 transition-transform duration-300 hover:scale-125"
                     >
                         <i class="fab fa-instagram"></i>
+                    </a>
+                    <a
+                        target="_blank"
+                        href={redesSociales[2].url}
+                        class="text-white hover:text-blue-200 transition-transform duration-300 hover:scale-125"
+                    >
+                        <i class="fab fa-tiktok"></i>
                     </a>
                 </div>
             </div>
